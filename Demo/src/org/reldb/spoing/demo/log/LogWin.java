@@ -9,7 +9,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.FormLayout;
@@ -19,6 +18,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.ToolItem;
 import org.reldb.spoing.platform.IconLoader;
+import org.reldb.spoing.platform.PlatformFileDialog;
 import org.eclipse.swt.graphics.Color;
 
 public class LogWin {
@@ -56,7 +56,7 @@ public class LogWin {
 	private BlockingQueue<Message> messageQueue;
 	private boolean running = true;
 
-	private FileDialog saveTextDialog;
+	private PlatformFileDialog saveTextDialog;
 
 	protected LogWin() {
 		messageQueue = new LinkedBlockingQueue<Message>();
@@ -92,24 +92,25 @@ public class LogWin {
 		tltmSave.setImage(IconLoader.loadIcon("save"));
 		tltmSave.addListener(SWT.Selection, e -> {
 			if (saveTextDialog == null) {
-				saveTextDialog = new FileDialog(shell, SWT.SAVE);
-			//	saveTextDialog.setFilterPath(System.getProperty("user.home"));
+				saveTextDialog = new PlatformFileDialog(shell, SWT.SAVE);
+				saveTextDialog.setFilterPath(System.getProperty("user.home"));
 				saveTextDialog.setFilterExtensions(new String[] { "*.txt", "*.*" });
-			//	saveTextDialog.setFilterNames(new String[] { "Text", "All Files" });
+				saveTextDialog.setFilterNames(new String[] { "Text", "All Files" });
 				saveTextDialog.setText("Save Output");
-			//	saveTextDialog.setOverwrite(true);
+				saveTextDialog.setOverwrite(true);
 			}
-			String fname = saveTextDialog.open();
-			if (fname == null)
-				return;
-			try {
-				BufferedWriter f = new BufferedWriter(new FileWriter(fname));
-				f.write(textLog.getText());
-				f.close();
-				output("Saved " + fname, blue);
-			} catch (IOException ioe) {
-				output(ioe.toString(), red);
-			}
+			saveTextDialog.open(fname -> {
+				if (fname == null)
+					return;
+				try {
+					BufferedWriter f = new BufferedWriter(new FileWriter(fname));
+					f.write(textLog.getText());
+					f.close();
+					output("Saved " + fname, blue);
+				} catch (IOException ioe) {
+					output(ioe.toString(), red);
+				}				
+			});
 		});
 
 		textLog = new Text(shell, SWT.BORDER | SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL);
