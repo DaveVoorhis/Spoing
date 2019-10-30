@@ -1,0 +1,13 @@
+== Third Party libraries used by Spoing ==
+
+Apache Tomcat http://tomcat.apache.org/
+
+- Embedded application server for Web deployment.
+
+SWT - Standard Widget Toolkit https://www.eclipse.org/swt/
+
+- Cross platform native UI widgets.
+
+RAP/RWT - Remote Application Platform / RAP Widget Toolkit https://www.eclipse.org/rap/
+
+NOTE: All product names, logos, and brands are property of their respective owners.

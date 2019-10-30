@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE ant>
+<project basedir="." default="build-war" name="SpoingWebDemo">
+	<target name = "build-war">
+	   <war destfile = "SpoingWebDemo.war" webxml = "WebContent/WEB-INF/web.xml">
+	      <fileset dir = "WebContent">
+	         <include name = "**/*.*"/>
+	      </fileset>
+	      
+	      <lib dir = "WebContent/WEB-INF/lib">
+	         <exclude name = "portlet.jar"/>
+	      </lib>
+	      
+	      <classes dir = "build/classes"/>
+	   </war>
+	</target>
+</project>
