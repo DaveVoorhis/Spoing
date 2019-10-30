@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spoingPlatformAll"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -28,6 +29,12 @@
 	<classpathentry kind="lib" path="/_Deploy/lib/misc/opentest4j-1.1.1.jar"/>
 	<classpathentry kind="lib" path="/_Deploy/lib/misc/xmlbeans-3.0.1.jar"/>
 	<classpathentry kind="lib" path="/_Deploy/lib/misc/commons-compress-1.19.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spoingPlatformAll"/>
+	<classpathentry kind="lib" path="/launchWeb/tomcat/annotations-api.jar"/>
+	<classpathentry kind="lib" path="/launchWeb/tomcat/ecj-4.13.jar"/>
+	<classpathentry kind="lib" path="/launchWeb/tomcat/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="/launchWeb/tomcat/tomcat-embed-core.jar"/>
+	<classpathentry kind="lib" path="/launchWeb/tomcat/tomcat-embed-el.jar"/>
+	<classpathentry kind="lib" path="/launchWeb/tomcat/tomcat-embed-jasper.jar"/>
+	<classpathentry kind="lib" path="/launchWeb/tomcat/tomcat-embed-websocket.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

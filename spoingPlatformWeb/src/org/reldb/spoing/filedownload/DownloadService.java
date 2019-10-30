@@ -1,4 +1,4 @@
-package org.reldb.rapid.filedownload;
+package org.reldb.spoing.filedownload;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
