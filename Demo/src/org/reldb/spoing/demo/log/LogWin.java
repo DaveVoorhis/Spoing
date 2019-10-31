@@ -1,5 +1,6 @@
 package org.reldb.spoing.demo.log;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -91,6 +92,7 @@ public class LogWin {
 			logDownloader = new LogDownloader(shell);
 			logDownloader.setText("Save");
 			logDownloader.open();
+			logDownloader.setContents(textLog.getText().getBytes(StandardCharsets.UTF_8));
 
 			/*
 			if (saveTextDialog == null) {

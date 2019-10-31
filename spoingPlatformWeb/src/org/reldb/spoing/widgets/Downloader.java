@@ -2,6 +2,7 @@ package org.reldb.spoing.widgets;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.reldb.spoing.filedownload.DownloadService;
 import org.reldb.spoing.utilities.EventHandler;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.layout.FillLayout;
@@ -10,7 +11,9 @@ public class Downloader extends Composite {
 	
 	private static final long serialVersionUID = 1L;
 
-	public final EventHandler<String> savePressed = new EventHandler<>();
+	public final EventHandler<String> DownloadResult = new EventHandler<>();
+	
+	private byte[] contents = null;
 	
 	public void setFilterPath(String path) {
 	}
@@ -26,6 +29,10 @@ public class Downloader extends Composite {
 
 	public String getFileName() {
 		return "";
+	}
+
+	public void setContents(byte[] bytes) {
+		contents = bytes;
 	}
 	
 	/**
@@ -43,6 +50,9 @@ public class Downloader extends Composite {
 		Button btnDownload = new Button(this, SWT.NONE);
 		btnDownload.setToolTipText("Click to download.");
 		btnDownload.setText("Download");
-		btnDownload.addListener(SWT.Selection, evt -> savePressed.fire(null));
+		btnDownload.addListener(SWT.Selection, evt -> {
+			DownloadService.downloadFileData(contents, "untitled.txt");
+			DownloadResult.fire(null);
+		});
 	}
 }

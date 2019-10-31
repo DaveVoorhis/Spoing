@@ -8,20 +8,26 @@ import org.reldb.spoing.widgets.Downloader;
 
 public class LogDownloader extends DialogAbstract {
 
+	private Downloader downloader;
+	
 	public LogDownloader(Shell parent) {
 		super(parent);
+		downloader = new Downloader(shell, SWT.NONE);
 	}
 
 	@Override
 	protected void createContents() {
 		shell.setLayout(new FillLayout());
-		var downloader = new Downloader(shell, SWT.NONE);
-		downloader.savePressed.addListener(fileName -> {
-			System.out.println("LogDownloader: save file pressed on " + fileName);
+		downloader.DownloadResult.addListener(result -> {
+			close();
 		});
 		shell.pack();
 		var packedSize = shell.getSize();
 		shell.setSize(300, packedSize.y);
+	}
+
+	public void setContents(byte[] bytes) {
+		downloader.setContents(bytes);
 	}
 
 }

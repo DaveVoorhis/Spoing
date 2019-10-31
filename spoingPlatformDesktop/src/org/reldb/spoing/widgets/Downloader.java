@@ -1,5 +1,7 @@
 package org.reldb.spoing.widgets;
 
+import java.io.FileWriter;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.layout.FormLayout;
@@ -13,9 +15,11 @@ import org.eclipse.swt.widgets.Button;
 
 public class Downloader extends Composite {
 	
-	public final EventHandler<String> savePressed = new EventHandler<>();
+	public final EventHandler<String> DownloadResult = new EventHandler<>();
 	
-	protected PlatformFileDialog saveDialog;
+	private byte[] contents = null;
+	
+	protected PlatformFileDialog saveDialog;	
 	private Text textFileName;
 	
 	public void setFilterPath(String path) {
@@ -37,6 +41,10 @@ public class Downloader extends Composite {
 
 	public String getFileName() {
 		return textFileName.getText().trim();
+	}
+
+	public void setContents(byte[] bytes) {
+		contents = bytes;
 	}
 	
 	/**
@@ -83,7 +91,16 @@ public class Downloader extends Composite {
 		fd_btnSave.right = new FormAttachment(100, -10);
 		btnSave.setLayoutData(fd_btnSave);
 		btnSave.setText("Save");
-		btnSave.addListener(SWT.Selection, evt -> savePressed.fire(getFileName()));
+		btnSave.addListener(SWT.Selection, evt -> {
+			try (var f = new FileWriter(getFileName())) {
+				if (contents != null)
+					for (int ch: contents)
+						f.write(ch);
+			} catch (Throwable t) {
+				// TODO - catch exceptions
+			}
+			DownloadResult.fire("");
+		});
 
 		fd_btnPickFile.right = new FormAttachment(btnSave, -6);		
 		
