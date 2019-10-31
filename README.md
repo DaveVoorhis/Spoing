@@ -10,11 +10,11 @@ If you want to quickly write and deploy an application to run on any
 desktop and/or the Web, Spoing makes it easy to do it.
 
 Spoing includes everything you need to get started, including:
-* an embedded Tomcat server for launching Web applications
-* the SWT libraries from Eclipse.org (https://www.eclipse.org/swt/)
-* the RAP/RWT libraries from Eclipse.org (https://www.eclipse.org/rap/)
-* libraries to abstract away differences between SWT and RAP/RWT (https://www.eclipse.org/rap/developers-guide/devguide.php?topic=rwt.html)
-* sample application code
+* An embedded Tomcat server for launching Web applications (https://tomcat.apache.org/)
+* The SWT desktop UI libraries from Eclipse.org (https://www.eclipse.org/swt/)
+* The RAP/RWT Web UI libraries from Eclipse.org (https://www.eclipse.org/rap/)
+* Libraries to abstract away differences between SWT and RAP/RWT (https://www.eclipse.org/rap/developers-guide/devguide.php?topic=rwt.html)
+* Sample application code
 
 The provided libraries are easily separable, so you can either release
 for all supported platforms -- i.e., Windows, Linux, MacOS, Web -- or
