@@ -2,11 +2,14 @@ package org.reldb.spoing.widgets;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.layout.FormLayout;
 import org.reldb.spoing.utilities.EventHandler;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.layout.FillLayout;
 
 public class Downloader extends Composite {
 	
+	private static final long serialVersionUID = 1L;
+
 	public final EventHandler<String> savePressed = new EventHandler<>();
 	
 	public void setFilterPath(String path) {
@@ -32,7 +35,14 @@ public class Downloader extends Composite {
 	 */
 	public Downloader(Composite parent, int style) {
 		super(parent, style);
-		setLayout(new FormLayout());
+		FillLayout fillLayout = new FillLayout(SWT.HORIZONTAL);
+		fillLayout.marginWidth = 10;
+		fillLayout.marginHeight = 10;
+		setLayout(fillLayout);
 		
+		Button btnDownload = new Button(this, SWT.NONE);
+		btnDownload.setToolTipText("Click to download.");
+		btnDownload.setText("Download");
+		btnDownload.addListener(SWT.Selection, evt -> savePressed.fire(null));
 	}
 }
