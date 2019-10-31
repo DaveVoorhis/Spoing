@@ -1,4 +1,5 @@
-== Spoing into Action! ==
+Spoing into Action!
+===================
 
 Spoing is a set of libraries and sample source code to simplify
 building and deploying lightweight, fast-loading, cross-platform
