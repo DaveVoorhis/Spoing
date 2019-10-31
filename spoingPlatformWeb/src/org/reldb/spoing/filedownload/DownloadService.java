@@ -45,6 +45,21 @@ public class DownloadService implements ServiceHandler {
 		abstract void send(HttpServletResponse response) throws IOException;
 	}
 	
+	private static class DownloadFileData extends DownloadInformation {
+		private byte[] fileData;
+		private String fileName;
+		
+		DownloadFileData(byte[] fileData, String fileName) {
+			this.fileData = fileData;
+			this.fileName = fileName;
+		}
+
+		@Override
+		void send(HttpServletResponse response) throws IOException {
+			sendBytes(fileData, fileName, response);
+		}
+	}
+	
 	private static class DownloadFile extends DownloadInformation {
 		private Path file;
 		
@@ -119,6 +134,12 @@ public class DownloadService implements ServiceHandler {
 		RWT.getServiceManager().registerServiceHandler(serviceHandlerName, this);
 	}
 
+	/** Initiate download of file data. */
+	private void instanceDownloadFileData(byte[] fileData, String fileName) {
+		UrlLauncher launcher = RWT.getClient().getService(UrlLauncher.class);
+		launcher.openURL(createFileDownloadUrl(new DownloadFileData(fileData, fileName)));
+	}
+
 	/** Initiate a download of a file. */
 	private void instanceDownloadFile(Path file) {
 		UrlLauncher launcher = RWT.getClient().getService(UrlLauncher.class);
@@ -155,12 +176,31 @@ public class DownloadService implements ServiceHandler {
 		return instance;
 	}
 	
-	/** Initiate a download of a file. */
+	/**
+	 * Initiate download of a file given a byte array of its data.
+	 * 
+	 * @param fileData - byte[] of file data
+	 * @param fileName - suggested file name
+	 */
+	public static void downloadFileData(byte[] fileData, String fileName) {
+		getInstance().instanceDownloadFileData(fileData, fileName);
+	}
+
+	/**
+	 * Initiate download of a specified file.
+	 * 
+	 * @param file - server-side file to be downloaded.
+	 */
 	public static void downloadFile(Path file) {
 		getInstance().instanceDownloadFile(file);
 	}
 	
-	/** Initiate a download of a zip of a collection of files. */
+	/**
+	 * Initiate a download of a zip of a collection of files.
+	 * 
+	 * @param files - Path[] array of server-side files to be zipped.
+	 * @param zipFileName - suggested .zip file name to download
+	 */
 	public static void downloadZipFile(Path[] files, String zipFileName) {
 		getInstance().instanceDownloadZipFile(files, zipFileName);
 	}

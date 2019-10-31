@@ -6,5 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/_Deploy/lib/rwt/mchange-commons-java-0.2.11.jar"/>
+	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.apache.commons.fileupload_1.3.2.v20170320-2229.jar"/>
+	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.apache.commons.io_2.6.0.v20190123-2029.jar"/>
+	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.eclipse.rap.filedialog_3.10.0.20190819-1509.jar"/>
+	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.eclipse.rap.fileupload_3.10.0.20190627-0844.jar"/>
+	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.eclipse.rap.rwt_3.10.0.20190819-1509.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

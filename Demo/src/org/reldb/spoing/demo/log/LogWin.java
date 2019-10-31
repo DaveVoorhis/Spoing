@@ -1,8 +1,5 @@
 package org.reldb.spoing.demo.log;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -18,7 +15,6 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.ToolItem;
 import org.reldb.spoing.platform.IconLoader;
-import org.reldb.spoing.platform.PlatformFileDialog;
 import org.eclipse.swt.graphics.Color;
 
 public class LogWin {
@@ -55,8 +51,8 @@ public class LogWin {
 
 	private BlockingQueue<Message> messageQueue;
 	private boolean running = true;
-
-	private PlatformFileDialog saveTextDialog;
+	
+	private LogDownloader logDownloader;
 
 	protected LogWin() {
 		messageQueue = new LinkedBlockingQueue<Message>();
@@ -91,6 +87,12 @@ public class LogWin {
 		tltmSave.setToolTipText("Save");
 		tltmSave.setImage(IconLoader.loadIcon("save"));
 		tltmSave.addListener(SWT.Selection, e -> {
+
+			logDownloader = new LogDownloader(shell);
+			logDownloader.setText("Save");
+			logDownloader.open();
+
+			/*
 			if (saveTextDialog == null) {
 				saveTextDialog = new PlatformFileDialog(shell, SWT.SAVE);
 				saveTextDialog.setFilterPath(System.getProperty("user.home"));
@@ -111,6 +113,7 @@ public class LogWin {
 					output(ioe.toString(), red);
 				}				
 			});
+			*/
 		});
 
 		textLog = new Text(shell, SWT.BORDER | SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL);
