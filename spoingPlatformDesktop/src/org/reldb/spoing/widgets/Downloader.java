@@ -97,7 +97,8 @@ public class Downloader extends Composite {
 					for (int ch: contents)
 						f.write(ch);
 			} catch (Throwable t) {
-				// TODO - catch exceptions
+				// TODO send back as DownloadResult
+				System.out.println("Downloader: Error writing file: " + t);
 			}
 			DownloadResult.fire("");
 		});

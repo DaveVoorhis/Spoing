@@ -91,8 +91,8 @@ public class LogWin {
 
 			logDownloader = new LogDownloader(shell);
 			logDownloader.setText("Save");
-			logDownloader.open();
 			logDownloader.setContents(textLog.getText().getBytes(StandardCharsets.UTF_8));
+			logDownloader.open();
 
 			/*
 			if (saveTextDialog == null) {

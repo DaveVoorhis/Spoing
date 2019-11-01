@@ -9,15 +9,17 @@ import org.reldb.spoing.widgets.Downloader;
 public class LogDownloader extends DialogAbstract {
 
 	private Downloader downloader;
+	private byte[] bytes;
 	
 	public LogDownloader(Shell parent) {
 		super(parent);
-		downloader = new Downloader(shell, SWT.NONE);
 	}
 
 	@Override
 	protected void createContents() {
 		shell.setLayout(new FillLayout());
+		downloader = new Downloader(shell, SWT.NONE);
+		downloader.setContents(bytes);
 		downloader.DownloadResult.addListener(result -> {
 			close();
 		});
@@ -27,7 +29,7 @@ public class LogDownloader extends DialogAbstract {
 	}
 
 	public void setContents(byte[] bytes) {
-		downloader.setContents(bytes);
+		this.bytes = bytes;
 	}
 
 }
