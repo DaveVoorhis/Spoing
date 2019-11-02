@@ -9,7 +9,6 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
-import org.reldb.spoing.commands.Commands.Do;
 import org.reldb.spoing.platform.IconLoader;
 
 /*
@@ -21,7 +20,7 @@ import org.reldb.spoing.platform.IconLoader;
  * 
  */
 public class CommandActivator extends ToolItem {
-	private Do command;
+	private Integer command;
     private ToolBar toolbar;
 	private MenuItem menuItem;
 	private String iconName;
@@ -52,7 +51,7 @@ public class CommandActivator extends ToolItem {
     	notifyHidden();
     }
 
-	public CommandActivator(Do command, ToolBar toolBar, String iconName, int style, String tooltipText, Listener listener) {
+	public CommandActivator(Integer command, ToolBar toolBar, String iconName, int style, String tooltipText, Listener listener) {
 		super(toolBar, style);
 		this.command = command;
 		this.toolbar = toolBar;
@@ -123,7 +122,7 @@ public class CommandActivator extends ToolItem {
 		return iconName;
 	}
 	
-	public Do getCommand() {
+	public Integer getCommand() {
 		return command;
 	}
 

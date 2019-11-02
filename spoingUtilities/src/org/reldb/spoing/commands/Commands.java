@@ -14,18 +14,8 @@ import org.eclipse.swt.widgets.ToolItem;
 
 public class Commands {
 
-	public static enum Do {
-		MakeBackup,
-		RestoreBackup,
-		NewGrid,
-		Link,
-		Import,
-		Refresh,
-		AddColumn
-	}
-
-	private static Map<Do, MenuItem> menuDoMapping = new HashMap<>();
-	private static Map<Do, HashSet<ToolBar>> commandDoMapping = new HashMap<>();
+	private static Map<Integer, MenuItem> menuDoMapping = new HashMap<>();
+	private static Map<Integer, HashSet<ToolBar>> commandDoMapping = new HashMap<>();
 	
 	public static void addCommandActivator(CommandActivator activator) {
 		synchronized (commandDoMapping) {
@@ -46,7 +36,7 @@ public class Commands {
 		}
 	}
 	
-	public static CommandActivator getCommandActivator(Do command) {
+	public static CommandActivator getCommandActivator(Integer command) {
 		synchronized (commandDoMapping) {
 			HashSet<ToolBar> toolbars = commandDoMapping.get(command);
 			if (toolbars == null)
@@ -62,7 +52,7 @@ public class Commands {
 		}
 	}
 	
-	public static void linkCommand(Do command, AcceleratedMenuItem menuItem) {
+	public static void linkCommand(Integer command, AcceleratedMenuItem menuItem) {
 		menuDoMapping.put(command, menuItem);
 		menuItem.getParent().addMenuListener(new MenuAdapter() {
 			@Override
@@ -90,7 +80,7 @@ public class Commands {
 		menuItem.setEnabled(false);
 	}
 
-	public static MenuItem getMenuItem(Do command, CommandActivator toolitem) {
+	public static MenuItem getMenuItem(Integer command, CommandActivator toolitem) {
 		return menuDoMapping.get(command);
 	}
 

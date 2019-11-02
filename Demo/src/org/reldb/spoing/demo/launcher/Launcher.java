@@ -22,7 +22,6 @@ import org.eclipse.swt.widgets.*;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.reldb.spoing.commands.AcceleratedMenuItem;
 import org.reldb.spoing.commands.Commands;
-import org.reldb.spoing.commands.Commands.Do;
 import org.reldb.spoing.demo.about.AboutDialog;
 import org.reldb.spoing.demo.content.Content;
 import org.reldb.spoing.demo.feedback.BugReportDialog;
@@ -91,16 +90,16 @@ public class Launcher {
 			public void menuShown(MenuEvent arg0) {
 				Menu recent = new Menu(menu);
 				recentItem.setMenu(recent);				
-				String[] dbURLs = getRecentlyUsedDatasheetList();
+				String[] dbURLs = getRecentlyUsedDocumentList();
 				if (dbURLs.length > 0) {
 					int recentlyUsedCount = 0;
 					for (String dbURL: dbURLs) {
-						(new AcceleratedMenuItem(recent, "Open " + dbURL, 0, "OpenDBLocalIcon", e -> openDatasheet(dbURL))).setEnabled(fileMayExist(dbURL));
+						(new AcceleratedMenuItem(recent, "Open " + dbURL, 0, "OpenDBLocalIcon", e -> openDocument(dbURL))).setEnabled(fileMayExist(dbURL));
 						if (++recentlyUsedCount >= 20)	// arbitrarily decide 20 is enough
 							break;
 					}
 					new MenuItem(recent, SWT.SEPARATOR);
-					new AcceleratedMenuItem(recent, "Clear this list...", 0, null, e -> clearRecentlyUsedDatasheetList());
+					new AcceleratedMenuItem(recent, "Clear this list...", 0, null, e -> clearRecentlyUsedDocumentList());
 				}
 			}
 		});
@@ -123,19 +122,19 @@ public class Launcher {
 		OSSpecific.addFileMenuItems(menu);
 	}
 
-	protected static void clearRecentlyUsedDatasheetList() {
+	protected static void clearRecentlyUsedDocumentList() {
 		// TODO Auto-generated method stub
 	}
 
-	protected static void addRecentlyUsedDatasheetItem(String dbURL) {
+	protected static void addRecentlyUsedDocumentItem(String dbURL) {
 		if (dbURL == null)
 			return;
 	}
 	
-	protected static void openDatasheet(String dbURL) {
+	protected static void openDocument(String dbURL) {
 	}
 
-	protected static String[] getRecentlyUsedDatasheetList() {
+	protected static String[] getRecentlyUsedDocumentList() {
 		// TODO - get list of recently used things
 		return new String[] {};
 	}
@@ -253,28 +252,26 @@ public class Launcher {
 		createEditMenuItem("delete", new AcceleratedMenuItem(menu, "Delete\tDel", SWT.DEL, "rubbish-bin"));
 		createEditMenuItem("selectAll", new AcceleratedMenuItem(menu, "Select All\tCtrl-A", SWT.MOD1 | 'A', "select-all"));
 	}
-	
-	static void createDataMenu(Menu bar) {
-		MenuItem dataItem = new MenuItem(bar, SWT.CASCADE);
-		dataItem.setText("Data");
-		
-		Menu menu = new Menu(dataItem);
-		dataItem.setMenu(menu);
-
-		Commands.linkCommand(Do.NewGrid, new AcceleratedMenuItem(menu, "New Grid...\tCtrl-G", SWT.MOD1 | 'G', "newgrid"));
-		Commands.linkCommand(Do.Link, new AcceleratedMenuItem(menu, "Link...\tCtrl-L", SWT.MOD1 | 'L', "link"));
-		Commands.linkCommand(Do.Import, new AcceleratedMenuItem(menu, "Import...\tCtrl-I", SWT.MOD1 | 'I', "import"));
-		
-		new MenuItem(menu, SWT.SEPARATOR);
-		
-		Commands.linkCommand(Do.Refresh, new AcceleratedMenuItem(menu, "Refresh\tCtrl-R", SWT.MOD1 | 'R', "reload"));
-		Commands.linkCommand(Do.AddColumn, new AcceleratedMenuItem(menu, "Add column", 0, "addcolumn"));
-	}
 
 	@SuppressWarnings("null")
 	private static void kaboom() {
 		Object object = null; 
 		object.toString();		
+	}
+	
+	static void createDemoMenu(Menu bar) {
+		MenuItem dataItem = new MenuItem(bar, SWT.CASCADE);
+		dataItem.setText("Demo");
+		
+		Menu menu = new Menu(dataItem);
+		dataItem.setMenu(menu);
+
+		Commands.linkCommand(Command.NewTab.ordinal(), new AcceleratedMenuItem(menu, "New Tab\tCtrl-N", SWT.MOD1 | 'N', "add-new-document"));
+		
+		if (showKaboomMenuItem) {
+			new MenuItem(menu, SWT.SEPARATOR);
+			new AcceleratedMenuItem(menu, "Force crash for testing purposes", 0, null, e -> kaboom());
+		}
 	}
 	
 	private static void createToolMenu(Menu bar) {
@@ -289,11 +286,6 @@ public class Launcher {
 		new AcceleratedMenuItem(menu, "Submit Feedback", 0, "idea", e -> new SuggestionboxDialog(shell).open());
 		new AcceleratedMenuItem(menu, "Bug Report", 0, "bug_menu", e -> new BugReportDialog(shell).open());
 		new AcceleratedMenuItem(menu, "Check for Updates", 0, "upgrade_menu", e -> new UpdatesCheckDialog(shell).open());
-		
-		if (showKaboomMenuItem) {
-			new MenuItem(menu, SWT.SEPARATOR);
-			new AcceleratedMenuItem(menu, "Force crash for testing purposes", 0, null, e -> kaboom());
-		}
 	}
 	
 	private static void createHelpMenu(Menu bar) {
@@ -318,7 +310,7 @@ public class Launcher {
 		if (!createdScreenBar || !hasAppMenuBar) {
 			createFileMenu(bar);
 			createEditMenu(bar);
-			createDataMenu(bar);
+			createDemoMenu(bar);
 			createToolMenu(bar);
 			createHelpMenu(bar);
 			

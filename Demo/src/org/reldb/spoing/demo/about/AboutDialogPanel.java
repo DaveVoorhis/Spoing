@@ -7,9 +7,9 @@ import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.wb.swt.SWTResourceManager;
 import org.reldb.spoing.demo.version.Version;
 import org.reldb.spoing.platform.IconLoader;
+import org.reldb.spoing.utilities.FontSize;
 
 public class AboutDialogPanel extends Composite {
 
@@ -37,7 +37,7 @@ public class AboutDialogPanel extends Composite {
 		fd_lblTitle.top = new FormAttachment(0, 0);
 		fd_lblTitle.left = new FormAttachment(lblLogo, 5);
 		lblTitle.setLayoutData(fd_lblTitle);
-		lblTitle.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 16, SWT.NORMAL));
+		lblTitle.setFont(FontSize.getThisFontInNewSize(lblTitle.getFont(), 24, SWT.NORMAL));
 		lblTitle.setText(Version.getAppName() + " " + Version.getAppSubtitle());
 		
 		Label lblVersion = new Label(this, SWT.NONE);
