@@ -24,6 +24,12 @@ public class DialogBase extends Dialog {
 		super(parent, style);
 	}
 	
+	public void setText(String text) {
+		super.setText(text);
+		if (shell != null)
+			shell.setText(text);
+	}
+	
 	/** Open the dialog box. */
 	protected void launch() {
 		open(null);

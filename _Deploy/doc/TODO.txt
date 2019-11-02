@@ -1,3 +1,1 @@
 ** TO DO **
-
-- Check into issue with setText on dialog boxes sometimes not working.
