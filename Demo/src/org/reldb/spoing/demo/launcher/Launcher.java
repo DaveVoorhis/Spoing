@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.concurrent.Semaphore;
 
 import org.eclipse.swt.SWT;
@@ -18,12 +17,14 @@ import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.events.MenuAdapter;
 import org.eclipse.swt.events.MenuEvent;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.*;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.reldb.spoing.commands.AcceleratedMenuItem;
 import org.reldb.spoing.commands.Commands;
 import org.reldb.spoing.commands.Commands.Do;
 import org.reldb.spoing.demo.about.AboutDialog;
+import org.reldb.spoing.demo.content.Content;
 import org.reldb.spoing.demo.feedback.BugReportDialog;
 import org.reldb.spoing.demo.feedback.CrashDialog;
 import org.reldb.spoing.demo.feedback.SuggestionboxDialog;
@@ -31,6 +32,7 @@ import org.reldb.spoing.demo.log.LogWin;
 import org.reldb.spoing.demo.preferences.Preferences;
 import org.reldb.spoing.demo.updates.UpdatesCheckDialog;
 import org.reldb.spoing.demo.version.Version;
+import org.reldb.spoing.messageloop.MessageLoop;
 import org.reldb.spoing.platform.IconLoader;
 import org.reldb.spoing.platform.Platform;
 import org.reldb.spoing.platform.UniversalClipboard;
@@ -46,8 +48,6 @@ public class Launcher {
 	static boolean createdScreenBar = false;
 	
 	static Shell shell = null;
-	
-	private static Queue<Runnable> tasks = new LinkedList<Runnable>();
 	
 	private static synchronized void quit() {
 		System.out.println("Shutting down...");
@@ -407,20 +407,10 @@ public class Launcher {
 	}
 
 	private static void run() {
-		
-	}
-	
-	public static void addTask(Runnable task) {
-		tasks.add(task);
-	}
-	
-	private static void doWaitingTasks() {
-		if (shell == null)
-			return;
-		shell.getDisplay().syncExec(() -> {
-			while (!tasks.isEmpty())
-				tasks.remove().run();
-		});
+		shell.setLayout(new FillLayout());
+		shell.open();
+		new Content(shell, SWT.NONE);
+		shell.layout();
 	}
 	
 	/** Desktop launcher. */
@@ -474,6 +464,7 @@ public class Launcher {
 		
 		shell = createShell();
 		shell.addListener(SWT.Dispose, evt -> {
+			MessageLoop.stop();
 			LogWin.remove();
 			quit();
 		});
@@ -523,19 +514,10 @@ public class Launcher {
 			closeSplash();
 		
 		// Thunderbirds are go.
-		shell.open();
 		run();
 		
-		while (display != null && !display.isDisposed()) {
-			try {
-				if (display != null && !display.readAndDispatch()) {
-					doWaitingTasks();
-					display.sleep();
-				}
-			} catch (Throwable exception) {
-				CrashDialog.launch(exception);
-			}
-		}
+		// Start message pump.
+		MessageLoop.start(display, exception -> CrashDialog.launch(exception));
 	}
 
 	/** RWT (Web) launcher. */
@@ -554,7 +536,7 @@ public class Launcher {
 		);
 		
 		shell.addListener(SWT.Dispose, evt -> {
-			shutdownBackgroundRunner();
+			MessageLoop.stop();
 			LogWin.remove();
 			quit();
 		});
@@ -565,36 +547,12 @@ public class Launcher {
 		shell.setImage(IconLoader.loadIcon("SpoingIcon"));
 		shell.setImages(loadIcons(Display.getCurrent()));
 		shell.setText(Version.getAppID());
-
-		startBackgroundRunner();
 		
 		// Thunderbirds are go.
-		shell.open();
 		run();
-	}
 
-	private static boolean backgroundRunnerRunning = false;
-	
-	private static void startBackgroundRunner() {
-		// Background task processor.
-		var background = new Thread(() -> {
-			 backgroundRunnerRunning = true;
-			 while (backgroundRunnerRunning) {
-				 doWaitingTasks();
-				 try {
-					 Thread.sleep(500);
-				 } catch (InterruptedException e1) {}
-			 }
-		});
-		background.setDaemon(true);
-		background.start();
-	}
-
-	private static void shutdownBackgroundRunner() {
-		backgroundRunnerRunning = false;
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e1) {}
+		// Start background processor.
+		MessageLoop.start(shell.getDisplay(), null);
 	}
 	
 }
