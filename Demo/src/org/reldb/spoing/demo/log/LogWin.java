@@ -16,6 +16,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.ToolItem;
 import org.reldb.spoing.platform.IconLoader;
+import org.reldb.spoing.widgets.Downloader;
 import org.eclipse.swt.graphics.Color;
 
 public class LogWin {
@@ -53,7 +54,7 @@ public class LogWin {
 	private BlockingQueue<Message> messageQueue;
 	private boolean running = true;
 	
-	private LogDownloader logDownloader;
+	private Downloader logDownloader;
 
 	protected LogWin() {
 		messageQueue = new LinkedBlockingQueue<Message>();
@@ -89,7 +90,7 @@ public class LogWin {
 		tltmSave.setImage(IconLoader.loadIcon("save"));
 		tltmSave.addListener(SWT.Selection, e -> {
 
-			logDownloader = new LogDownloader(shell);
+			logDownloader = new Downloader(shell);
 			logDownloader.setText("Save");
 			logDownloader.setContents(textLog.getText().getBytes(StandardCharsets.UTF_8));
 			logDownloader.open();
