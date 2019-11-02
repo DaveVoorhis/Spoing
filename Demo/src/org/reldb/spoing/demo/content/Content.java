@@ -7,12 +7,14 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
 import org.reldb.spoing.utilities.MessageDialog;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Spinner;
+import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Slider;
 import org.eclipse.swt.widgets.Scale;
@@ -190,8 +192,43 @@ public class Content extends Composite {
 		var fd_list = new FormData();
 		fd_list.top = new FormAttachment(lblList, 3);
 		fd_list.left = new FormAttachment(0, 10);
-		fd_list.right = new FormAttachment(100, -10);
+		fd_list.right = new FormAttachment(33, -5);
 		fd_list.bottom = new FormAttachment(100, -10);
 		list.setLayoutData(fd_list);
+		
+		var lblTable = new Label(this, SWT.NONE);
+		var fd_lblTable = new FormData();
+		fd_lblTable.top = new FormAttachment(scale, 10);
+		fd_lblTable.left = new FormAttachment(33, 5);
+		lblTable.setLayoutData(fd_lblTable);
+		lblTable.setText("Table:");
+		
+		var table = new Table(this, SWT.BORDER | SWT.V_SCROLL);
+	//	for (var i = 123; i < 472; i++)
+	//		table.add(Integer.toString(i));
+		var fd_table = new FormData();
+		fd_table.top = new FormAttachment(lblTable, 3);
+		fd_table.left = new FormAttachment(33, 5);
+		fd_table.right = new FormAttachment(66, -5);
+		fd_table.bottom = new FormAttachment(100, -10);
+		table.setLayoutData(fd_table);
+				
+		var lblTree = new Label(this, SWT.NONE);
+		var fd_lblTree = new FormData();
+		fd_lblTree.top = new FormAttachment(scale, 10);
+		fd_lblTree.left = new FormAttachment(66, 5);
+		lblTree.setLayoutData(fd_lblTree);
+		lblTree.setText("Tree:");
+		
+		var tree = new Tree(this, SWT.BORDER | SWT.V_SCROLL);
+	//	for (var i = 123; i < 472; i++)
+	//		table.add(Integer.toString(i));
+		var fd_tree = new FormData();
+		fd_tree.top = new FormAttachment(lblTree, 3);
+		fd_tree.left = new FormAttachment(66, 5);
+		fd_tree.right = new FormAttachment(100, -10);
+		fd_tree.bottom = new FormAttachment(100, -10);
+		tree.setLayoutData(fd_table);
+
 	}
 }
