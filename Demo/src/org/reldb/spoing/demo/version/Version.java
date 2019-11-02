@@ -34,6 +34,10 @@ public class Version {
 		return getAppName() + " " + getVersionNumber();
 	}
 
+	public static String getCopyrightNotice() {
+		return getAppName() + " Copyright © 2019\nDave Voorhis and reldb.org\nAll Rights Reserved"; 
+	}
+	
 	public static String getProductPackage() {
 		return "org.reldb.spoing.demo";
 	}

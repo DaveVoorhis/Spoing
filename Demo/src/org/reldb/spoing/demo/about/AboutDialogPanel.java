@@ -25,25 +25,38 @@ public class AboutDialogPanel extends Composite {
 		
 		setLayout(new FormLayout());
 		
-		Label lblNewLabel = new Label(this, SWT.NONE);
-		FormData fd_lblNewLabel = new FormData();
-		fd_lblNewLabel.top = new FormAttachment(0, 0);
-		fd_lblNewLabel.left = new FormAttachment(0, 0);
-		lblNewLabel.setLayoutData(fd_lblNewLabel);
-		lblNewLabel.setImage(IconLoader.loadIcon("Candle32"));
+		Label lblLogo = new Label(this, SWT.NONE);
+		FormData fd_lblLogo = new FormData();
+		fd_lblLogo.top = new FormAttachment(0, 0);
+		fd_lblLogo.left = new FormAttachment(0, 0);
+		lblLogo.setLayoutData(fd_lblLogo);
+		lblLogo.setImage(IconLoader.loadIcon("Candle32"));
 		
-		Label lblNewTitle = new Label(this, SWT.NONE);
-		FormData fd_lblNewTitle = new FormData();
-		fd_lblNewTitle.top = new FormAttachment(0, 0);
-		fd_lblNewTitle.left = new FormAttachment(lblNewLabel, 5);
-		lblNewTitle.setLayoutData(fd_lblNewTitle);
-		lblNewTitle.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 16, SWT.NORMAL));
-		lblNewTitle.setText(Version.getAppName() + " " + Version.getAppSubtitle());
+		Label lblTitle = new Label(this, SWT.NONE);
+		FormData fd_lblTitle = new FormData();
+		fd_lblTitle.top = new FormAttachment(0, 0);
+		fd_lblTitle.left = new FormAttachment(lblLogo, 5);
+		lblTitle.setLayoutData(fd_lblTitle);
+		lblTitle.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 16, SWT.NORMAL));
+		lblTitle.setText(Version.getAppName() + " " + Version.getAppSubtitle());
+		
+		Label lblVersion = new Label(this, SWT.NONE);
+		FormData fd_lblVersion = new FormData();
+		fd_lblVersion.top = new FormAttachment(lblTitle, 8);
+		fd_lblVersion.left = new FormAttachment(lblTitle, 0, SWT.LEFT);
+		lblVersion.setLayoutData(fd_lblVersion);
+		lblVersion.setText(Version.getVersion());
+		
+		Label lblCopyright = new Label(this, SWT.WRAP);
+		FormData fd_lblCopyright = new FormData();
+		fd_lblCopyright.top = new FormAttachment(lblVersion, 8);
+		fd_lblCopyright.left = new FormAttachment(lblTitle, 0, SWT.LEFT);
+		lblCopyright.setLayoutData(fd_lblCopyright);
+		lblCopyright.setText(Version.getCopyrightNotice());
 	}
 
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components
 	}
-
 }
