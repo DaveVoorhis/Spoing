@@ -89,34 +89,14 @@ public class LogWin {
 		tltmSave.setToolTipText("Save");
 		tltmSave.setImage(IconLoader.loadIcon("save"));
 		tltmSave.addListener(SWT.Selection, e -> {
-
 			logDownloader = new Downloader(shell);
 			logDownloader.setText("Save");
+			logDownloader.setFilterExtensions(new String[] {"*.txt", "*.*"});
+			logDownloader.setFilterNames(new String[] {"Text", "All Files"});
+			logDownloader.setFilterPath(System.getProperty("user.home"));
 			logDownloader.setContents(textLog.getText().getBytes(StandardCharsets.UTF_8));
+			logDownloader.setOverwrite(true);
 			logDownloader.open();
-
-			/*
-			if (saveTextDialog == null) {
-				saveTextDialog = new PlatformFileDialog(shell, SWT.SAVE);
-				saveTextDialog.setFilterPath(System.getProperty("user.home"));
-				saveTextDialog.setFilterExtensions(new String[] { "*.txt", "*.*" });
-				saveTextDialog.setFilterNames(new String[] { "Text", "All Files" });
-				saveTextDialog.setText("Save Output");
-				saveTextDialog.setOverwrite(true);
-			}
-			saveTextDialog.open(fname -> {
-				if (fname == null)
-					return;
-				try {
-					BufferedWriter f = new BufferedWriter(new FileWriter(fname));
-					f.write(textLog.getText());
-					f.close();
-					output("Saved " + fname, blue);
-				} catch (IOException ioe) {
-					output(ioe.toString(), red);
-				}				
-			});
-			*/
 		});
 
 		textLog = new Text(shell, SWT.BORDER | SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL);

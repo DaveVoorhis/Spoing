@@ -1,21 +1,16 @@
 package org.reldb.spoing.widgets;
 
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 import org.reldb.spoing.filedownload.DownloadService;
-import org.reldb.spoing.platform.DialogBase;
 import org.reldb.spoing.utilities.EventHandler;
-import org.eclipse.swt.layout.FillLayout;
 
-public class Downloader extends DialogBase {
-
-	private static final long serialVersionUID = 1L;
-
+public class Downloader {
+	
 	public final EventHandler<String> DownloadResult = new EventHandler<>();
 	
 	private byte[] contents = null;
 	
-	private DownloaderPanel downloaderPanel;
+	protected DownloaderDialog downloaderDialog;
 	
 	public void setFilterPath(String path) {
 	}
@@ -25,42 +20,35 @@ public class Downloader extends DialogBase {
 	
 	public void setFilterNames(String[] filterNames) {
 	}
+
+	public void setOverwrite(boolean b) {
+	}
 	
 	public void setFileName(String fileName) {
-		downloaderPanel.setFileName(fileName);
+		downloaderDialog.setFileName(fileName);
 	}
 
 	public String getFileName() {
-		return downloaderPanel.getFileName();
+		return downloaderDialog.getFileName();
+	}
+
+	public void setText(String text) {
+		downloaderDialog.setText(text);
 	}
 
 	public void setContents(byte[] bytes) {
 		contents = bytes;
 	}
 	
-	public Downloader(Shell parent, int shellStyle) {
-		super(parent, shellStyle);
-		shell = new Shell(getParent(), getStyle());
-		shell.setText(getText());
-		
-		var fillLayout = new FillLayout();
-		fillLayout.marginHeight = 10;
-		fillLayout.marginWidth = 10;
-		shell.setLayout(fillLayout);
-		
-		downloaderPanel = new DownloaderPanel(shell, () -> DownloadService.downloadFileData(contents, getFileName()));
-	}
-	
 	public Downloader(Shell parent) {
-		this(parent, SWT.DIALOG_TRIM | SWT.RESIZE | SWT.APPLICATION_MODAL);
-	}
-	
-	public void close() {
-		shell.close();
-		shell.dispose();
+		downloaderDialog = new DownloaderDialog(parent, () -> {
+			DownloadService.downloadFileData(contents, getFileName());
+			DownloadResult.fire("");
+		});
+		downloaderDialog.setFileName("Untitled.txt");
 	}
 	
 	public void open() {
-		launch();
+		downloaderDialog.open();
 	}
 }

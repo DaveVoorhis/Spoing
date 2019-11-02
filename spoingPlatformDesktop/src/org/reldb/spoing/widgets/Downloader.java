@@ -3,7 +3,7 @@ package org.reldb.spoing.widgets;
 import java.io.FileWriter;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
 import org.reldb.spoing.platform.PlatformFileDialog;
 import org.reldb.spoing.utilities.EventHandler;
 
@@ -26,6 +26,10 @@ public class Downloader {
 	public void setFilterNames(String[] filterNames) {
 		saveDialog.setFilterNames(filterNames);
 	}
+
+	public void setOverwrite(boolean b) {
+		saveDialog.setOverwrite(b);
+	}
 	
 	public void setFileName(String fileName) {
 		saveDialog.setFileName(fileName);
@@ -43,29 +47,20 @@ public class Downloader {
 		contents = bytes;
 	}
 
-	public Downloader(Composite parent) {
-		saveDialog = new PlatformFileDialog(parent.getShell(), SWT.SAVE);
-		saveDialog.setText("Save");
-		saveDialog.setOverwrite(true);
-
-		setFilterExtensions(new String[] {"*.txt", "*.*"});
-		setFilterNames(new String[] {"Text", "All Files"});
-		setFilterPath(System.getProperty("user.home"));
+	public Downloader(Shell parent) {
+		saveDialog = new PlatformFileDialog(parent, SWT.SAVE);
 	}
 	
 	public void open() {
-		saveDialog.open(result -> {
-			System.out.println("Downloader: write file to " + getFileName());
-			try (var f = new FileWriter(getFileName())) {
+		saveDialog.open(filespec -> {
+			try (var f = new FileWriter(filespec)) {
 				if (contents != null)
 					for (int ch: contents)
 						f.write(ch);
+				DownloadResult.fire("");			
 			} catch (Throwable t) {
-				// TODO send back as DownloadResult
-				System.out.println("Downloader: Error writing file: " + t);
-				t.printStackTrace();
+				DownloadResult.fire(t.getMessage());
 			}
-			DownloadResult.fire("");			
 		});
 	}
 }

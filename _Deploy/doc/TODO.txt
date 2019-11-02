@@ -1,5 +1,3 @@
 ** TO DO **
 
-- Add note to enable popups in Web Downloader.
-- Provide filename textbox in Web Downloader.
-- Have desktop Downloader go straight to 'save as' dialog box.
+- Check into issue with setText on dialog boxes sometimes not working.
