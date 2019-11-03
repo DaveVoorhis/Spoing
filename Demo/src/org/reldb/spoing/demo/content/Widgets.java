@@ -83,7 +83,7 @@ public class Widgets extends Composite {
 		btnThree.setLayoutData(fd_btnThree);
 		btnThree.setText("Three");
 		btnThree.addListener(SWT.Selection, evt -> MessageDialog.openQuestion(
-				getShell(), "Demo MessageDialog", "Is a demonstration of a question MessageDialog?",
+				getShell(), "Demo MessageDialog", "Is this a demonstration of a question MessageDialog?",
 					() -> MessageDialog.openInformation(getShell(), "Demo MessageDialog", "You must have clicked 'Yes'")));
 		
 		var grpCheckboxes = new Group(this, SWT.NONE);
