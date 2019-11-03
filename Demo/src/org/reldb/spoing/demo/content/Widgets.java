@@ -185,7 +185,7 @@ public class Widgets extends Composite {
 		lblList.setText("List:");
 		
 		var list = new List(this, SWT.BORDER | SWT.V_SCROLL);
-		for (var i = 123; i < 472; i++)
+		for (var i = 123; i < 244; i++)
 			list.add(Integer.toString(i));
 		var fd_list = new FormData();
 		fd_list.top = new FormAttachment(lblList, 3);
@@ -212,7 +212,7 @@ public class Widgets extends Composite {
 		tc.setText("Zap");
 		tc.setWidth(85);
 		table.setHeaderVisible(true);
-		for (var i = 382; i < 923; i++) {
+		for (var i = 382; i < 450; i++) {
 			var row = new TableItem(table, SWT.NONE);
 			for (var column = 0; column < table.getColumnCount(); column++)
 				row.setText(column, Double.toHexString(Math.random()));
@@ -238,14 +238,6 @@ public class Widgets extends Composite {
 			for (var index1 = 0; index1 < Math.random() * 10 + 1; index1++) {
 				var treeItem1 = new TreeItem(treeItem0, 0);
 				treeItem1.setText("Level 1 " + index1);
-				for (var index2 = 0; index2 < Math.random() * 15 + 1; index2++) {
-					var treeItem2 = new TreeItem(treeItem1, 0);
-					treeItem2.setText("Level 2 " + index2);
-					for (var index3 = 0; index3 < Math.random() * 20 + 1; index3++) {
-						var treeItem3 = new TreeItem(treeItem2, 0);
-						treeItem3.setText("Level 3 " + index3);
-					}
-				}
 			}
 		}
 		var fd_tree = new FormData();
