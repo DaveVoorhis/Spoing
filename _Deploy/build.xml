@@ -10,8 +10,8 @@
     <ant antfile="../spoingPlatformAll/build.xml" inheritAll="false" target="main" />
     <ant antfile="../spoingUtilities/build.xml" inheritAll="false" target="main" />
 
-    <ant antfile="../launchWeb/build.xml" inheritAll="false" target="assemble" />
-    <ant antfile="../launchDesktop/build.xml" inheritAll="false" target="main" />
+    <ant antfile="../launchDemoWeb/build.xml" inheritAll="false" target="assemble" />
+    <ant antfile="../launchDemoDesktop/build.xml" inheritAll="false" target="main" />
   </target>
 
   <target name="clean">
