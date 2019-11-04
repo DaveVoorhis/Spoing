@@ -1,4 +1,4 @@
-<project name="dBrowser" basedir="." default="main">
+<project name="demo.core" basedir="." default="main">
 
     <property name="src.dir"     value="src"/>
     <property name="bin.dir"     value="bin"/>
