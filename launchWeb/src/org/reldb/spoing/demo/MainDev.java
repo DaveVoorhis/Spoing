@@ -41,7 +41,7 @@ public class MainDev {
 				"It's because the contents of WebContent/WEB-INF/lib conflicts with IDE-loaded classes.\n" +
 				"To correct the problem, delete all files in WebContent/WEB-INF/lib before loading your IDE.\n" +
 				"Use the ant build (see build.xml) to repopulate WebContent/WEB-INF/lib prior to deployment.\n");
-		(new Launcher(port, true, resources -> {
+		var launcher = new Launcher(port, true, resources -> {
 	        // --- Alternative location for "WEB-INF/classes" during development. --- 
 	        
 	        // DirResourceSet(WebResourceRoot root, java.lang.String webAppMount, java.lang.String base, java.lang.String internalPath)
@@ -61,6 +61,7 @@ public class MainDev {
 				System.out.println("Adding to pre resources: " + absolutePath);
 		        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", absolutePath, "/"));
 			}
-		})).start();
+		});
+		launcher.start();
 	}
 }
