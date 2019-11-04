@@ -1,0 +1,25 @@
+<project name="Spoing" default="clean-build">
+
+  <target name="build">
+    <ant antfile="../spoingNative/spoingNativeLinux_64/build.xml" inheritAll="false" target="main" />
+    <ant antfile="../spoingNative/spoingNativeMacos_64/build.xml" inheritAll="false" target="main" />
+    <ant antfile="../spoingNative/spoingNativeWin_64/build.xml" inheritAll="false" target="main" />
+
+    <ant antfile="../spoingPlatformWeb/build.xml" inheritAll="false" target="main" />
+    <ant antfile="../spoingPlatformDesktop/build.xml" inheritAll="false" target="main" />
+    <ant antfile="../spoingPlatformAll/build.xml" inheritAll="false" target="main" />
+    <ant antfile="../spoingUtilities/build.xml" inheritAll="false" target="main" />
+
+    <ant antfile="../launchWeb/build.xml" inheritAll="false" target="assemble" />
+    <ant antfile="../launchDesktop/build.xml" inheritAll="false" target="main" />
+  </target>
+
+  <target name="clean">
+    <delete includeemptydirs="false">
+      <fileset dir="lib/spoing" includes="**/*" />
+    </delete>
+  </target>
+
+  <target name="clean-build" depends="clean,build" />
+
+</project>

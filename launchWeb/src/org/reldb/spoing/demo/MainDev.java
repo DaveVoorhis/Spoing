@@ -33,6 +33,14 @@ public class MainDev {
     
 	public static void main(String[] args) {
 		Stream.generate("=== DEVELOPMENT LAUNCH. NOT FOR PRODUCTION!!! ==="::toString).limit(3).forEach(s -> System.out.println(s));
+		System.out.println(
+				"\nIf you get the following error, or a \"loader constraint violation\" similar to:\n" +
+				"\tjava.lang.LinkageError: loader constraint violation: loader 'app' wants to load class\n" +
+				"\torg.eclipse.swt.widgets.Composite. A different class with the same name was previously loaded by\n" +
+				"\torg.apache.catalina.loader.ParallelWebappClassLoader ...\n" + 
+				"It's because the contents of WebContent/WEB-INF/lib conflicts with IDE-loaded classes.\n" +
+				"To correct the problem, delete all files in WebContent/WEB-INF/lib before loading your IDE.\n" +
+				"Use the ant build (see build.xml) to repopulate WebContent/WEB-INF/lib prior to deployment.\n");
 		(new Launcher(port, true, resources -> {
 	        // --- Alternative location for "WEB-INF/classes" during development. --- 
 	        

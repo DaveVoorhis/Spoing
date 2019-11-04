@@ -6,7 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/_Deploy/lib/swt/macos_64/swt_reldb.jar"/>
 	<classpathentry kind="lib" path="/_Deploy/lib/swt/macos_64/swt.jar"/>
 	<classpathentry kind="lib" path="/_Deploy/lib/misc/apiguardian-api-1.0.0.jar"/>
 	<classpathentry kind="lib" path="/_Deploy/lib/misc/commons-cli-1.4.jar"/>
@@ -27,5 +26,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/spoingPlatformAll"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/spoingPlatformDesktop"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/spoingUtilities"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/spoingNativeMacos_64"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,9 +1,9 @@
-<project name="org.reldb.spoing.platform-all" basedir="." default="main">
+<project name="org.reldb.spoing.native.macos_64" basedir="." default="main">
 
-  <property name="src.dir"     value="src"/>
-  <property name="bin.dir"     value="bin"/>
-  <property name="lib.dir"     value="../_Deploy/lib/spoing"/>
-  
+  <property name="src.dir" value="src"/>
+  <property name="bin.dir" value="bin"/>
+  <property name="lib.dir" value="../../_Deploy/lib/spoing/macos_64"/>
+
   <target name="clean">
     <delete dir="${build.dir}"/>
   </target>
@@ -14,7 +14,7 @@
   </target>
 
   <target name="jar" depends="compile">
-    <loadproperties srcFile="../_Deploy/version.txt"/>
+    <loadproperties srcFile="../../_Deploy/version.txt" />
     <buildnumber/>
     <mkdir dir="${lib.dir}"/>
     <jar destfile="${lib.dir}/${ant.project.name}_${version}.${build.number}.jar" basedir="${bin.dir}">

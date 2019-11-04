@@ -1,45 +1,43 @@
 <project name="launchWeb" basedir="." default="assemble">
 
-    <property name="src.dir"     value="src"/>
-    <property name="bin.dir"     value="bin"/>
-    <property name="lib.dir"     value="lib"/>
+  <property name="src.dir"     value="src"/>
+  <property name="bin.dir"     value="bin"/>
 
-    <property name="main-class"  value="org.reldb.spoing.demo.MainProd"/>
+  <property name="main-class"  value="org.reldb.spoing.demo.MainProd"/>
 
-    <target name="clean">
-        <delete dir="${build.dir}"/>
-    </target>
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+  </target>
 
-    <target name="compile">
-        <mkdir dir="${bin.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${bin.dir}" includeantruntime="false"/>
-    </target>
+  <target name="compile">
+    <mkdir dir="${bin.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${bin.dir}" includeantruntime="false"/>
+  </target>
 
-	<target name="assemble" depends="compile">
-		<copy todir="WebContent/WEB-INF/lib" flatten="true">
-			  <fileset dir="../_Deploy/lib/misc"/>
-			  <fileset dir="../_Deploy/lib/rwt"/>
-		</copy>
-		<copy file="../_Deploy/lib/spoing/spoing-platform-all.jar" todir="WebContent/WEB-INF/lib"/>
-		<copy file="../_Deploy/lib/spoing/spoing-platform-web.jar" todir="WebContent/WEB-INF/lib"/>
-		<copy file="../_Deploy/lib/spoing/spoing-utilities.jar" todir="WebContent/WEB-INF/lib"/>
-	</target>
-	
-    <target name="jar" depends="compile">
-        <mkdir dir="${lib.dir}"/>
-        <jar destfile="${lib.dir}/${ant.project.name}.jar" basedir="${bin.dir}">
-            <manifest>
-                <attribute name="Main-Class" value="${main-class}"/>
-            </manifest>
-        </jar>
-    </target>
+  <target name="assemble" depends="compile">
+    <delete includeEmptyDirs="true" quiet="true">
+      <fileset dir="WebContent/WEB-INF/lib" />
+      <fileset dir="tomcat.*"/>
+      <fileset dir="WebContent/rwt-resources"/>
+    </delete>
+    <copy todir="WebContent/WEB-INF/lib" includeEmptyDirs="false">
+      <fileset dir="../_Deploy/lib/misc"/>
+      <fileset dir="../_Deploy/lib/rwt"/>
+      <fileset dir="../_Deploy/lib/spoing">
+	<exclude name="*desktop*"/>
+	<exclude name="linux*/*"/>
+	<exclude name="macos*/*"/>
+	<exclude name="win*/*"/>
+      </fileset>
+    </copy>
+  </target>
 
-    <target name="run" depends="jar">
-        <java jar="${lib.dir}/${ant.project.name}.jar" fork="true"/>
-    </target>
+  <target name="run" depends="assemble">
+    <java jar="${lib.dir}/${ant.project.name}.jar" fork="true"/>
+  </target>
 
-    <target name="clean-build" depends="clean,jar"/>
+  <target name="clean-build" depends="clean,assemble"/>
 
-    <target name="main" depends="clean-build"/>
+  <target name="main" depends="clean-build"/>
 
 </project>
