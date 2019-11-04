@@ -16,7 +16,13 @@ import org.reldb.spoing.tomcat.Launcher;
  * your application -- via the classDirs array below -- so that you don't need
  * to repeatedly rebuild .jars and copy them into WebContent/WEB-INF/lib
  * 
- * You will have to do that once before deployment, though.
+ * Unfortunately, that does mean it will almost certainly throw an exception
+ * if you launch it in your IDE with a full set of libraries in the
+ * WebContent/WEB-INF/lib directory. Solution: delete them whilst using the
+ * IDE.
+ * 
+ * Then use the ant build in _Deploy to populate WebContent/WEB-INF/lib
+ * before deployment.
  * 
  * @author dave
  *
