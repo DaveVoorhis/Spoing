@@ -1,2 +1,2 @@
 #!/bin/sh
-java -cp lib/*:../lib/misc/*:../lib/native/macos_64/*:../lib/spoing/* -XstartOnFirstThread org.reldb.spoing.demo.Main
+java -cp ../lib/swt/macos_64/*:../lib/spoing/desktop/*:../lib/spoing/desktop/macos_64/*:../lib/spoing/*:SpoingDemoDesktop.jar:lib/* -XstartOnFirstThread org.reldb.spoing.demo.Main

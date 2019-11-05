@@ -1,1 +1,1 @@
-@java -cp lib/*;../lib/misc/*;../lib/native/linux_64/*;../lib/spoing/* org.reldb.spoing.demo.Main
+@java -cp ../lib/swt/win_64/*;../lib/spoing/desktop/*;../lib/spoing/desktop/win_64/*;../lib/spoing/*;SpoingDemoDesktop.jar;lib/* org.reldb.spoing.demo.Main

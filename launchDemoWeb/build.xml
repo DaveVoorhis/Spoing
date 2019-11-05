@@ -25,14 +25,12 @@
       <fileset dir="../_Deploy/demo/tomcat.*"/>
       <fileset dir="../_Deploy/demo/WebContent/rwt-resources"/>
     </delete>
-    <copy todir="WebContent/WEB-INF/lib" includeEmptyDirs="false">
-      <fileset dir="../_Deploy/demo/lib"/>
-      <fileset dir="../_Deploy/lib/rwt"/>
+    <copy todir="WebContent/WEB-INF/lib" flatten="true" includeEmptyDirs="false">
+      <fileset dir="../_Deploy/demo/lib" />
+      <fileset dir="../_Deploy/lib/rwt" />
+      <fileset dir="../_Deploy/lib/spoing/web"/>
       <fileset dir="../_Deploy/lib/spoing">
-	<exclude name="*desktop*"/>
-	<exclude name="linux*/*"/>
-	<exclude name="macos*/*"/>
-	<exclude name="win*/*"/>
+    	 <include name="*.jar"/>
       </fileset>
     </copy>
   	<copy todir="../_Deploy/demo/tomcat">
@@ -49,5 +47,11 @@
   <target name="clean-build" depends="clean,assemble"/>
 
   <target name="main" depends="clean-build"/>
+	
+  <target name="clear-lib">
+    <delete includeEmptyDirs="false" quiet="true">
+      <fileset dir="WebContent/WEB-INF/lib" />
+	</delete>  	
+  </target>
 
 </project>

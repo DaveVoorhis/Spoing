@@ -15,17 +15,26 @@
     <ant antfile="../launchDemoDesktop/build.xml" inheritAll="false" target="main" />
   </target>
 
-  <target name="clean">
+  <target name="clean" depends="clean_launchDemoWeb_lib">
     <delete includeemptydirs="false">
-      <fileset dir="lib/spoing" includes="**/*" />
-	  <fileset dir="../launchDemoWeb/WebContent/WEB-INF/lib" includes="**/*"/>
+	  <fileset dir="lib/spoing" includes="**/*"/>
     </delete>
   	<delete includeemptydirs="true" quiet="true">
   		<fileset dir="../launchDemoWeb/tomcat.8080"/>
+  		<fileset file="../launchDemoWeb/tomcat.log"/>
   		<fileset dir="../launchDemoWeb/WebContent/rwt-resources"/>
+  		<fileset dir="demo/tomcat.8080"/>
+  		<fileset file="demo/tomcat.log"/>
+  		<fileset dir="demo/WebContent/rwt-resources"/>
   	</delete>
   </target>
 
   <target name="clean-build" depends="clean,build" />
+
+  <target name="clean_launchDemoWeb_lib">
+    <delete includeemptydirs="false">
+	  <fileset dir="../launchDemoWeb/WebContent/WEB-INF/lib" includes="**/*"/>
+    </delete>
+  </target>
 
 </project>

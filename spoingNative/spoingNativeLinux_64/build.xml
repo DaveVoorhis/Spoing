@@ -2,7 +2,7 @@
 
   <property name="src.dir" value="src"/>
   <property name="bin.dir" value="bin"/>
-  <property name="lib.dir" value="../../_Deploy/lib/spoing"/>
+  <property name="lib.dir" value="../../_Deploy/lib/spoing/desktop/linux_64"/>
 
   <target name="clean">
     <delete dir="${build.dir}"/>
