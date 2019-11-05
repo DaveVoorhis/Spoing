@@ -21,6 +21,7 @@ for all supported platforms -- i.e., Windows, Linux, MacOS, Web -- or
 a subset if you wish.
 
 Future updates will:
+* Add improved documentation
 * Consider integration with (for example) Tabris
 (https://eclipsesource.com/products/tabris/) to enable mobile app
 targets;
