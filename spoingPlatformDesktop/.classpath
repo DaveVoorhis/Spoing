@@ -7,6 +7,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/_Deploy/lib/native/macos_64/swt.jar"/>
+	<classpathentry kind="lib" path="/_Deploy/lib/swt/macos_64/swt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -2,7 +2,7 @@
 
     <property name="src.dir"     value="src"/>
     <property name="bin.dir"     value="bin"/>
-    <property name="lib.dir"     value="../_Deploy/demo/lib"/>
+    <property name="lib.dir"     value="../_Deploy/demo"/>
 
     <property name="main-class"  value="org.reldb.spoing.demo.Main"/>
 

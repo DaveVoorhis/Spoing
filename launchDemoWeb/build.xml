@@ -2,7 +2,6 @@
 
   <property name="src.dir"     value="src"/>
   <property name="bin.dir"     value="bin"/>
-  <property name="tgt.dir"	   value="tgt"/>
 
   <property name="main-class"  value="org.reldb.spoing.demo.MainProd"/>
 
@@ -21,8 +20,13 @@
       <fileset dir="tomcat.*"/>
       <fileset dir="WebContent/rwt-resources"/>
     </delete>
+    <delete includeEmptyDirs="true" quiet="true">
+      <fileset dir="../_Deploy/demo/WebContent/WEB-INF/lib" />
+      <fileset dir="../_Deploy/demo/tomcat.*"/>
+      <fileset dir="../_Deploy/demo/WebContent/rwt-resources"/>
+    </delete>
     <copy todir="WebContent/WEB-INF/lib" includeEmptyDirs="false">
-      <fileset dir="../_Deploy/lib/misc"/>
+      <fileset dir="../_Deploy/demo/lib"/>
       <fileset dir="../_Deploy/lib/rwt"/>
       <fileset dir="../_Deploy/lib/spoing">
 	<exclude name="*desktop*"/>
@@ -31,9 +35,13 @@
 	<exclude name="win*/*"/>
       </fileset>
     </copy>
-  	<copy todir="../_Deploy/demo/web">
+  	<copy todir="../_Deploy/demo/tomcat">
   		<fileset dir="tomcat"/>
+  	</copy>
+  	<copy todir="../_Deploy/demo/bin">
   		<fileset dir="bin"/>
+  	</copy>
+  	<copy todir="../_Deploy/demo/WebContent">
   		<fileset dir="WebContent"/>
   	</copy>
   </target>

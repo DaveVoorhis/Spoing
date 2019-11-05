@@ -61,9 +61,9 @@ public class MainProd {
         	System.exit(2);
         }
         
-		(new Launcher(port, new FileHandler("tomcat.log", true), Level.WARNING, resources -> {
-	        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", new File("bin").getAbsolutePath(), "/"));
-		})).start();
+		var launcher = new Launcher(port, new FileHandler("tomcat.log", true), Level.WARNING, resources ->
+	        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", new File("bin").getAbsolutePath(), "/")));
+		launcher.start();
 	}
 
 }

@@ -18,7 +18,12 @@
   <target name="clean">
     <delete includeemptydirs="false">
       <fileset dir="lib/spoing" includes="**/*" />
+	  <fileset dir="../launchDemoWeb/WebContent/WEB-INF/lib" includes="**/*"/>
     </delete>
+  	<delete includeemptydirs="true" quiet="true">
+  		<fileset dir="../launchDemoWeb/tomcat.8080"/>
+  		<fileset dir="../launchDemoWeb/WebContent/rwt-resources"/>
+  	</delete>
   </target>
 
   <target name="clean-build" depends="clean,build" />
