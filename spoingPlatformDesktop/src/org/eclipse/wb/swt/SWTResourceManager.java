@@ -127,10 +127,15 @@ public class SWTResourceManager {
 		Image image = m_imageMap.get(path);
 		if (image == null) {
 			try {
-				InputStream imageStream = SWTResourceManager.class.getResourceAsStream(path);
+				InputStream imageStream = SWTResourceManager.class.getResourceAsStream(path.replace("//", "/"));
+				if (imageStream == null) {
+					System.out.println("SWTResourceManager: getImageOrNull can't open " + path);
+					return null;
+				}
 				image = getImage(imageStream);
 				m_imageMap.put(path, image);
 			} catch (Exception e) {
+				System.out.println("SWTResourceManager: getImageOrNull returns null because: " + e);
 				image = null;
 			}
 		}
