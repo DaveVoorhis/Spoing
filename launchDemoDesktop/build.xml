@@ -1,8 +1,8 @@
-<project name="SpoingDemo" basedir="." default="main">
+<project name="SpoingDemoDesktop" basedir="." default="main">
 
     <property name="src.dir"     value="src"/>
     <property name="bin.dir"     value="bin"/>
-    <property name="lib.dir"     value="lib"/>
+    <property name="lib.dir"     value="../_Deploy/demo/lib"/>
 
     <property name="main-class"  value="org.reldb.spoing.demo.Main"/>
 
@@ -22,10 +22,6 @@
                 <attribute name="Main-Class" value="${main-class}"/>
             </manifest>
         </jar>
-    </target>
-
-    <target name="run" depends="jar">
-        <java jar="${lib.dir}/${ant.project.name}.jar" fork="true"/>
     </target>
 
     <target name="clean-build" depends="clean,jar"/>

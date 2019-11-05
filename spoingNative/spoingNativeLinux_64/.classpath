@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/_Deploy/lib/swt/linux_64/swt.jar"/>
+	<classpathentry kind="lib" path="/_Deploy/lib/native/linux_64/swt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

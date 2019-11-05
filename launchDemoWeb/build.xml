@@ -2,6 +2,7 @@
 
   <property name="src.dir"     value="src"/>
   <property name="bin.dir"     value="bin"/>
+  <property name="tgt.dir"	   value="tgt"/>
 
   <property name="main-class"  value="org.reldb.spoing.demo.MainProd"/>
 
@@ -30,10 +31,11 @@
 	<exclude name="win*/*"/>
       </fileset>
     </copy>
-  </target>
-
-  <target name="run" depends="assemble">
-    <java jar="${lib.dir}/${ant.project.name}.jar" fork="true"/>
+  	<copy todir="../_Deploy/demo/web">
+  		<fileset dir="tomcat"/>
+  		<fileset dir="bin"/>
+  		<fileset dir="WebContent"/>
+  	</copy>
   </target>
 
   <target name="clean-build" depends="clean,assemble"/>
