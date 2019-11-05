@@ -26,3 +26,7 @@ Future updates will:
 targets;
 * Where possible, move portions of sample code to the libraries, to
 simplify creating new applications.
+
+See the README.md file under _Deploy/demo for information on how to
+run the demonstration application, which also serves as a starting
+point for building new applications.
