@@ -42,3 +42,17 @@ The Oracle JDK 13 or above from https://www.oracle.com/technetwork/java/javase/d
 
 The consumer-oriented run-time JRE 8 installer (e.g., https://download.java.net) should be considered obsolete. It was intended for a model of deployment that is no longer used, where a Java Virtual Machine (aka JVM, which is part of the Java Runtime Edition or JRE) was downloaded and installed separately from Java applications. Modern Java development bundles an application-specific JRE (generated using JDK tools) with each application.
 
+## Running the Demo
+
+Install JDK 13 or higher, as described above.
+
+Download this project to your system, if you have not already done so.
+
+Via the command-line, change to the _Deploy/demo directory.
+
+Note that six scripts are provided, three desktop (Windows, MacOS and Linux) and three Web (Windows, MacOS, and Linux).
+
+To run a demo, run the Web or Desktop script appropriate to your operating system from the command-line. The scripts are intentionally as simple as possible to illustrate which .jars are needed.
+
+The Web demos will start up a Web server which will remain running until explicitly terminated via Ctrl-c. When the server starts, it will show the URL to access the application. Normally, http://localhost:8080 will work.
+
