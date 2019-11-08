@@ -40,3 +40,5 @@ The run-time JRE 8 installer -- intended for a model of deployment that is no lo
 
 You can obtain JDK 13 and above from https://openjdk.java.net. Download the bundle appropriate to your environment, unarchive it to a directory of your choice, and set your PATH environment variable to point to its _bin_ directory.
 
+The Oracle JDK 13 or above from https://www.oracle.com/technetwork/java/javase/downloads/index.html should work, but hasn't been tested.
+
