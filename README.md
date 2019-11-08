@@ -32,7 +32,7 @@ See the README.md file under _Deploy/demo for information on how to
 run the demonstration application, which also serves as a starting
 point for building new applications.
 
----
+## Required JDK
 
 This release is intended for JDK 13 and above, but can be recompiled using Eclipse or other IDE or the provided ant build.xml scripts to work with JDK 9 or above. 
 
