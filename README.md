@@ -34,11 +34,11 @@ point for building new applications.
 
 ## Required JDK
 
-This release is intended for JDK 13 and above, but can be recompiled using Eclipse or other IDE or the provided ant build.xml scripts to work with JDK 9 or above. 
-
-The run-time JRE 8 installer -- intended for a model of deployment that is no longer used (downloading a JVM separate from a Java application, as opposed to bundled with it) -- from Oracle (e.g., https://download.java.net) should be considered obsolete.
+This release is intended for Java Development Kit (JDK) 13 and above, but can be recompiled using Eclipse or other IDE or the provided ant build.xml scripts to work with JDK 9 or above. 
 
 You can obtain JDK 13 and above from https://openjdk.java.net. Download the bundle appropriate to your environment, unarchive it to a directory of your choice, and set your PATH environment variable to point to its _bin_ directory.
 
 The Oracle JDK 13 or above from https://www.oracle.com/technetwork/java/javase/downloads/index.html should work, but hasn't been tested.
+
+The consumer-oriented run-time JRE 8 installer (e.g., https://download.java.net) should be considered obsolete. It was intended for a model of deployment that is no longer used, where a Java Virtual Machine (aka JVM, which is part of the Java Runtime Edition or JRE) was downloaded and installed separately from Java applications. Modern Java development bundles an application-specific JRE (generated using JDK tools) with each application.
 
