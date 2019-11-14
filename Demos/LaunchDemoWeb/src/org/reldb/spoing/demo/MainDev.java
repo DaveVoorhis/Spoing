@@ -31,10 +31,10 @@ public class MainDev {
     private static final int port = 8080;
 
     private static String[] classDirs = {
-    	"bin",
-    	"../spoingPlatformAll/bin",
-    	"../spoingPlatformWeb/bin",
-    	"../spoingUtilities/bin"
+    	"target/classes",
+    	"../../source/spoingPlatformAll/target/classes",
+    	"../../source/spoingPlatformWeb/target/classes",
+    	"../../source/spoingUtilities/target/classes"
     };
     
 	public static void main(String[] args) {

@@ -1,11 +1,9 @@
 package org.reldb.spoing.demo;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 
-import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
@@ -61,8 +59,7 @@ public class MainProd {
         	System.exit(2);
         }
         
-		var launcher = new Launcher(port, new FileHandler("tomcat.log", true), Level.WARNING, resources ->
-	        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", new File("bin").getAbsolutePath(), "/")));
+		var launcher = new Launcher(port, new FileHandler("tomcat.log", true), Level.WARNING, resources -> {});
 		launcher.start();
 	}
 

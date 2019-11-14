@@ -25,11 +25,47 @@
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>Demo</artifactId>
 			<version>1.1.0</version>
+			<exclusions>
+				<exclusion> <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingPlatformDesktop</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeWin_64</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeLinux_64</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeMacos_64</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingPlatformAll</artifactId>
 			<version>1.1.0</version>
+			<exclusions>
+				<exclusion> <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingPlatformDesktop</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeWin_64</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeLinux_64</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeMacos_64</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
@@ -40,6 +76,24 @@
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingUtilities</artifactId>
 			<version>1.1.0</version>
+			<exclusions>
+				<exclusion> <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingPlatformDesktop</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeWin_64</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeLinux_64</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeMacos_64</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
 		<dependency>
@@ -82,7 +136,7 @@
 						<configuration>
 							<overWriteReleases>true</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
-							<excludeTransitive>true</excludeTransitive>
+							<excludeTransitive>false</excludeTransitive>
 						</configuration>
 					</execution>
 				</executions>
@@ -98,11 +152,10 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/WebContent</outputDirectory>
+							<outputDirectory>${basedir}/../../WebContent</outputDirectory>
 							<resources>
 								<resource>
 									<directory>../../LaunchDemoWeb/WebContent</directory>
-									<filtering>true</filtering>
 								</resource>
 							</resources>
 						</configuration>
@@ -114,16 +167,43 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/WebContent/lib</outputDirectory>
+							<outputDirectory>${basedir}/../../WebContent/WEB-INF/lib</outputDirectory>
 							<resources>
 								<resource>
 									<directory>${basedir}/target/dependency</directory>
-									<filtering>true</filtering>
 								</resource>
 							</resources>
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}/../../WebContent</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/../../tomcat.8080</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/../../</directory>
+							<includes>
+								<include>tomcat.log</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
