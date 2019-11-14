@@ -16,9 +16,9 @@
    </properties>
 
   <modules>
-    <module>Demo</module>
-    <module>launchDemoDesktop</module>
-    <module>launchDemoWeb</module>
+    <module>demo</module>
+    <module>LaunchDemoDesktop</module>
+    <module>LaunchDemoWeb</module>
     <module>spoingNative/spoingNativeLinux_64</module>
     <module>spoingNative/spoingNativeMacos_64</module>
     <module>spoingNative/spoingNativeWin_64</module>
