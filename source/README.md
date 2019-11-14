@@ -26,3 +26,9 @@ IMPORTANT: If you wish to work on the Spoing library itself, you will need to se
 	spoingNativeMacos_64
 	
    as appropriate.
+   
+4 - Spoing needs to be built before you can use it. To build and install the jars in your Maven repository, do this:
+
+	mvn clean
+	mvn install
+

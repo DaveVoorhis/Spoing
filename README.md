@@ -48,11 +48,13 @@ The consumer-oriented run-time JRE 8 installer (e.g., https://download.java.net)
 
 4 - Via the command-line, change to the _source_ directory. Use Maven to build the libraries and store them in your system's Maven repository:
 
-	mvn clean install
+	mvn clean
+	mvn install
 
 5 - Via the command-line, change to the _Demos_ directory. Use Maven to build the demos:
 
-	mvn clean install
+	mvn clean
+	mvn install
 
 6 - To run a demo, run the Web or Desktop script appropriate to your operating system from the command-line.
   
