@@ -1,2 +1,2 @@
 #!/bin/sh
-java -cp ../lib/swt/linux_64/*:../lib/spoing/desktop/*:../lib/spoing/desktop/linux_64/*:../lib/spoing/*:SpoingDemoDesktop.jar:lib/* org.reldb.spoing.demo.Main
+java -cp builders/mkDesktopLinux_64/target/dependency/* org.reldb.spoing.demo.Main

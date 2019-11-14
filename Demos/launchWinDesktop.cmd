@@ -1,1 +1,1 @@
-@java -cp ../lib/swt/win_64/*;../lib/spoing/desktop/*;../lib/spoing/desktop/win_64/*;../lib/spoing/*;SpoingDemoDesktop.jar;lib/* org.reldb.spoing.demo.Main
+@java -cp builders\mkDesktopWin_64\target\dependency\* org.reldb.spoing.demo.Main
