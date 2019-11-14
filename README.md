@@ -30,13 +30,26 @@ simplify creating new applications.
 
 ## Required JDK
 
-This release is intended for Java Development Kit (JDK) 13 and above, but can be recompiled using Eclipse or other IDE -- or the Maven pom.xml scripts -- to work with JDK 9 or above.
+This release is intended for Java Development Kit (JDK) 13 and above,
+but can be recompiled using Eclipse or other IDE -- or the Maven
+pom.xml scripts -- to work with JDK 9 or above.
 
-You can obtain a JDK 13 and above from https://openjdk.java.net. Download the bundle appropriate to your environment, unarchive it to a directory of your choice, and set your PATH environment variable to point to its _bin_ directory.
+You can obtain a JDK 13 and above from
+https://openjdk.java.net. Download the bundle appropriate to your
+environment, unarchive it to a directory of your choice, and set your
+PATH environment variable to point to its _bin_ directory.
 
-The Oracle JDK 13 or above from https://www.oracle.com/technetwork/java/javase/downloads/index.html should work, but hasn't been tested.
+The Oracle JDK 13 or above from
+https://www.oracle.com/technetwork/java/javase/downloads/index.html
+should work, but hasn't been tested.
 
-The consumer-oriented run-time JRE 8 installer (e.g., https://download.java.net) should be considered obsolete. It was intended for a model of deployment that is no longer used, where a Java Virtual Machine (aka JVM, which is part of the Java Runtime Edition or JRE) was downloaded and installed separately from Java applications. Modern Java development bundles an application-specific JRE (generated using JDK tools) with each application.
+The consumer-oriented run-time JRE 8 installer (e.g.,
+https://download.java.net) should be considered obsolete. It was
+intended for a model of deployment that is no longer used, where a
+Java Virtual Machine (aka JVM, which is part of the Java Runtime
+Edition or JRE) was downloaded and installed separately from Java
+applications. Modern Java development bundles an application-specific
+JRE (generated using JDK tools) with each application.
 
 ## Running the Demo
 
@@ -46,18 +59,17 @@ The consumer-oriented run-time JRE 8 installer (e.g., https://download.java.net)
 
 3 - Download this project to your system, if you have not already done so.
 
-4 - Via the command-line, change to the _source_ directory. Use Maven to build the libraries and store them in your system's Maven repository:
+4 - Via the command-line, change to the project directory. Use Maven to clean and build the project:
 
 	mvn clean
 	mvn install
 
-5 - Via the command-line, change to the _Demos_ directory. Use Maven to build the demos:
+5 - To run a demo, change to the Demos directory. Use the command-line
+to run the Web or Desktop script appropriate to your operating
+system. Six scripts are provided, three desktop (Windows, MacOS and
+Linux) and three Web (Windows, MacOS, and Linux).
 
-	mvn clean
-	mvn install
-
-6 - To run a demo, run the Web or Desktop script appropriate to your operating system from the command-line.
-  
-Note that six scripts are provided, three desktop (Windows, MacOS and Linux) and three Web (Windows, MacOS, and Linux).
-
-The Web demos will start up a Web server which will remain running until explicitly terminated via Ctrl-c. When the server starts, it will show the URL to access the application. Normally, http://localhost:8080 will work.
+The Web demos will start up a Web server which will remain running
+until explicitly terminated via Ctrl-c. When the server starts, it
+will show the URL to access the application. Normally,
+http://localhost:8080 will work.
