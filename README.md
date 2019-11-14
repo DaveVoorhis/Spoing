@@ -64,7 +64,7 @@ JRE (generated using JDK tools) with each application.
 	mvn clean
 	mvn install
 
-5 - To run a demo, change to the Demos directory. Use the command-line
+5 - To try a demo, change to the Demos directory. Use the command-line
 to run the Web or Desktop script appropriate to your operating
 system. Six scripts are provided, three desktop (Windows, MacOS and
 Linux) and three Web (Windows, MacOS, and Linux).
