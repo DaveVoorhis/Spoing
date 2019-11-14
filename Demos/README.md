@@ -18,3 +18,10 @@ then run the Web or Desktop script for your operating system.
 The Web demos will start up a Web server which will remain running
 until explicitly terminated via Ctrl-c. When the server starts, it
 will show the URL to access the application.
+
+The demonstration application is divided into three subprojects:
+
+* demo - The application.
+* LaunchDemoDesktop - A launcher for desktop versions of the application. The main class is org.reldb.spoing.demo.Main
+* LaunchDemoWeb - A launcher for the Web version of the application. The main class is org.reldb.spoing.demo.MainProd
+
