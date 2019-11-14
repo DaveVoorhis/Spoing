@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>org.reldb.spoing</groupId>
+  <artifactId>spoing</artifactId>
+  <version>0.0.1</version>
+  <name>Spoing</name>
+  <packaging>pom</packaging>
+
+   <properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+   </properties>
+
+  <modules>
+    <module>Demo</module>
+    <module>launchDemoDesktop</module>
+    <module>launchDemoWeb</module>
+    <module>spoingNative/spoingNativeLinux_64</module>
+    <module>spoingNative/spoingNativeMacos_64</module>
+    <module>spoingNative/spoingNativeWin_64</module>
+    <module>spoingNonMavenLibs</module>
+    <module>spoingPlatformAll</module>
+    <module>spoingPlatformDesktop</module>
+    <module>spoingPlatformWeb</module>
+    <module>spoingUtilities</module>
+  </modules>
+</project>
