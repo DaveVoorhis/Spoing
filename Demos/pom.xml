@@ -22,9 +22,7 @@
     <module>builders/mkDesktopLinux_64</module>
     <module>builders/mkDesktopMacos_64</module>
     <module>builders/mkDesktopWin_64</module>
-    <module>builders/mkWebLinux_64</module>
-    <module>builders/mkWebMacos_64</module>
-    <module>builders/mkWebWin_64</module>
+    <module>builders/mkWeb</module>
   </modules>
     
 </project>
