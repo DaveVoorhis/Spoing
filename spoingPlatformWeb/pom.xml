@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.reldb.spoing</groupId>
+	<artifactId>spoingPlatformWeb</artifactId>
+	<version>0.0.1</version>
+	<name>Spoing Web platform</name>
+	<description>Abstract away differences between RAP/RWT and SWT for Web.</description>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.reldb.spoing</groupId>
+			<artifactId>spoingPlatformAll</artifactId>
+			<version>0.0.1</version>
+			<exclusions>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeWin_64</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeLinux_64</artifactId>
+				</exclusion>
+				<exclusion>  <!-- don't include desktop dependencies -->
+					<groupId>org.reldb.spoing</groupId>
+					<artifactId>spoingNativeMacos_64</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.rap</groupId>
+			<artifactId>org.eclipse.rap.fileupload</artifactId>
+			<version>3.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.rap</groupId>
+			<artifactId>org.eclipse.rap.filedialog</artifactId>
+			<version>3.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.rap</groupId>
+			<artifactId>org.eclipse.rap-rwt</artifactId>
+			<version>3.10.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>9.0.27</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>13</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

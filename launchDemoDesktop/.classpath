@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Demo"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spoingPlatformDesktop"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spoingPlatformAll"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spoingUtilities"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spoingNativeMacos_64"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="src" output="target/classes" path="src">
 		<attributes>
-			<attribute name="module" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/commons-cli-1.4.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/commons-codec-1.11.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/httpclient-4.5.10.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/httpcore-4.4.12.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/lib/swt/macos_64/swt.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

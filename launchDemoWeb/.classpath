@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spoingPlatformWeb"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Demo"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spoingPlatformAll"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/spoingUtilities"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="src" output="target/classes" path="src">
 		<attributes>
-			<attribute name="module" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="tomcat/annotations-api.jar"/>
-	<classpathentry kind="lib" path="tomcat/ecj-4.13.jar"/>
-	<classpathentry kind="lib" path="tomcat/tomcat-dbcp.jar"/>
-	<classpathentry kind="lib" path="tomcat/tomcat-embed-core.jar"/>
-	<classpathentry kind="lib" path="tomcat/tomcat-embed-el.jar"/>
-	<classpathentry kind="lib" path="tomcat/tomcat-embed-jasper.jar"/>
-	<classpathentry kind="lib" path="tomcat/tomcat-embed-websocket.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/lib/rwt/mchange-commons-java-0.2.11.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.apache.commons.fileupload_1.3.2.v20170320-2229.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.apache.commons.io_2.6.0.v20190123-2029.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.eclipse.rap.filedialog_3.10.0.20190819-1509.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.eclipse.rap.fileupload_3.10.0.20190627-0844.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/lib/rwt/org.eclipse.rap.rwt_3.10.0.20190819-1509.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/commons-codec-1.11.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/httpclient-4.5.10.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/httpcore-4.4.12.jar"/>
-	<classpathentry kind="lib" path="/_Deploy/demo/lib/commons-cli-1.4.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
