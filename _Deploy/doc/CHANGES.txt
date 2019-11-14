@@ -1,5 +1,0 @@
-Last used Exception* number: RS0000
-
-Version 1.000:
-
-Initial release.

@@ -1,0 +1,8 @@
+Version 1.000.xx:
+
+Initial release.
+
+Version 1.1.0
+
+Convert to use Maven, and reorganise to better separate demos from library source.
+
