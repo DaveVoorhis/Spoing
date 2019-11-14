@@ -28,13 +28,9 @@ targets;
 * Where possible, move portions of sample code to the libraries, to
 simplify creating new applications.
 
-See the README.md file under _Deploy/demo for information on how to
-run the demonstration application, which also serves as a starting
-point for building new applications.
-
 ## Required JDK
 
-This release is intended for Java Development Kit (JDK) 13 and above, but can be recompiled using Eclipse or other IDE or the provided ant build.xml scripts to work with JDK 9 or above. 
+This release is intended for Java Development Kit (JDK) 13 and above, but can be recompiled using Eclipse or other IDE -- or the Maven pom.xml scripts -- to work with JDK 9 or above.
 
 You can obtain a JDK 13 and above from https://openjdk.java.net. Download the bundle appropriate to your environment, unarchive it to a directory of your choice, and set your PATH environment variable to point to its _bin_ directory.
 
