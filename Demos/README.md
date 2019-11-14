@@ -13,3 +13,6 @@ To run a demo, use the command-line to cd to the _Deploy/demo subdirectory, then
 
 The Web demos will start up a Web server which will remain running until explicitly terminated via Ctrl-c. When the server starts, it will
 show the URL to access the application.
+
+**NOTE:** Converting from Ant to Maven is a work-in-progress. If you see this note, it means the provided shell scripts don't work. That will
+be rectified shortly.
