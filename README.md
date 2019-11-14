@@ -44,13 +44,22 @@ The consumer-oriented run-time JRE 8 installer (e.g., https://download.java.net)
 
 ## Running the Demo
 
-1. Install JDK 13 or higher, as described above.
+1 - Install JDK 13 or higher, as described above.
 
-2. Download this project to your system, if you have not already done so.
+2 - Install Apache Maven, if you have not already done so. See https://maven.apache.org/install.html 
 
-3. Via the command-line, change to the _Deploy/demo directory. Note that six scripts are provided, three desktop (Windows, MacOS and Linux) and three Web (Windows, MacOS, and Linux).
+3 - Download this project to your system, if you have not already done so.
 
-4. To run a demo, run the Web or Desktop script appropriate to your operating system from the command-line. The scripts are intentionally as simple as possible to illustrate which .jars are needed.
+4 - Via the command-line, change to the _source_ directory. Use Maven to build the libraries and store them in your system's Maven repository:
+
+	mvn clean install
+
+5 - Via the command-line, change to the _Demos_ directory. Use Maven to build the demos:
+
+	mvn clean install
+
+6 - To run a demo, run the Web or Desktop script appropriate to your operating system from the command-line.
+  
+Note that six scripts are provided, three desktop (Windows, MacOS and Linux) and three Web (Windows, MacOS, and Linux).
 
 The Web demos will start up a Web server which will remain running until explicitly terminated via Ctrl-c. When the server starts, it will show the URL to access the application. Normally, http://localhost:8080 will work.
-

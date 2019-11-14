@@ -1,28 +1,15 @@
-Spoing Source
-=============
+Demonstration Application
+=========================
 
-This is the source for the Spoing library.
+This application demonstrates the basic capability of Spoing, and also serves as a starting point for building your own applications.
 
-IMPORTANT: If you wish to work on the Spoing library itself, you will need to set a platform dependency to reflect your development environment:
+To configure it, use Maven:
 
-1 - Edit source/spoingPlatformAll/pom.xml
+	mvn clean install
 
-2 - Find the section that looks like this:
-    
-	<dependencies>
-		<dependency>
-			<groupId>org.reldb.spoing</groupId>
-			<artifactId>spoingNativeWin_64</artifactId>
-			<version>1.1.0</version>
-		</dependency>
-	</dependencies>
-    
-3 - If your OS platform matches what's in the &lt;artifactId&gt;...&lt;/artifactId&gt; tag, you're done! If it doesn't, change it to:
-    
-	spoingNativeLinux_64
-	
-   or
-    
-	spoingNativeMacos_64
-	
-   as appropriate.
+Six scripts are provided, three desktop (Windows, MacOS and Linux) and three Web (Windows, MacOS, and Linux).
+
+To run a demo, use the command-line to cd to the _Deploy/demo subdirectory, then run the Web or Desktop script for your operating system.
+
+The Web demos will start up a Web server which will remain running until explicitly terminated via Ctrl-c. When the server starts, it will
+show the URL to access the application.
