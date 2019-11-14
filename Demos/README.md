@@ -3,16 +3,18 @@ Demonstration Application
 
 This application demonstrates the basic capability of Spoing, and also serves as a starting point for building your own applications.
 
-To configure it, use Maven:
+Before you can try the demos, you have to build them with maven:
 
-	mvn clean install
+	mvn clean
+	mvn install
 
-Six scripts are provided, three desktop (Windows, MacOS and Linux) and three Web (Windows, MacOS, and Linux).
+Once you have built the demos, you will notice that six scripts are
+provided, three desktop (Windows, MacOS and Linux) and three Web
+(Windows, MacOS, and Linux).
 
-To run a demo, use the command-line to cd to the _Deploy/demo subdirectory, then run the Web or Desktop script for your operating system.
+To run a demo, use the command-line to cd to the Demos subdirectory,
+then run the Web or Desktop script for your operating system.
 
-The Web demos will start up a Web server which will remain running until explicitly terminated via Ctrl-c. When the server starts, it will
-show the URL to access the application.
-
-**NOTE:** Converting from Ant to Maven is a work-in-progress. If you see this note, it means the provided shell scripts don't work. That will
-be rectified shortly.
+The Web demos will start up a Web server which will remain running
+until explicitly terminated via Ctrl-c. When the server starts, it
+will show the URL to access the application.
