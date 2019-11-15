@@ -6,7 +6,7 @@
  
   <groupId>org.reldb.spoing</groupId>
   <artifactId>spoing</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <name>Spoing</name>
   <packaging>pom</packaging>
 

@@ -6,7 +6,7 @@
 
 	<groupId>org.reldb.spoing</groupId>
 	<artifactId>spoingDemoWeb</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<name>Spoing Web Demo</name>
 	<packaging>pom</packaging>
 
@@ -19,12 +19,12 @@
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>launchDemoWeb</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>demo</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 			<exclusions>
 				<exclusion> <!-- don't include desktop dependencies -->
 					<groupId>org.reldb.spoing</groupId>
@@ -47,7 +47,7 @@
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingPlatformAll</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 			<exclusions>
 				<exclusion> <!-- don't include desktop dependencies -->
 					<groupId>org.reldb.spoing</groupId>
@@ -70,12 +70,12 @@
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingPlatformWeb</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingUtilities</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 			<exclusions>
 				<exclusion> <!-- don't include desktop dependencies -->
 					<groupId>org.reldb.spoing</groupId>

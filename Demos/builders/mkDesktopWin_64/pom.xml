@@ -6,7 +6,7 @@
 
 	<groupId>org.reldb.spoing</groupId>
 	<artifactId>spoingDemoDesktopWin_64</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<name>Spoing Desktop Demo for Windows</name>
 	<packaging>pom</packaging>
 
@@ -19,27 +19,27 @@
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>launchDemoDesktop</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>demo</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingPlatformAll</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingPlatformDesktop</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingUtilities</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-cli/commons-cli -->
 		<dependency>
@@ -74,7 +74,7 @@
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingNativeWin_64</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.swt</groupId>

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.reldb.spoing</groupId>
 	<artifactId>spoingNativeMacos_64</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<name>Spoing MacOS-specific classes</name>
 	<description>Code specific to running a MacOS desktop.</description>
 	

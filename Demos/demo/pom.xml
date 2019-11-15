@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.reldb.spoing</groupId>
 	<artifactId>demo</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<name>Spoing demo core</name>
 	<description>Common core of Spoing demonstration application.</description>
 
@@ -47,17 +47,17 @@
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingPlatformAll</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingPlatformDesktop</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingUtilities</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 	</dependencies>
 

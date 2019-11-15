@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.reldb.spoing</groupId>
 	<artifactId>spoingUtilities</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<name>Spoing utilities</name>
 	<description>General purpose cross-platform utilities.</description>
 	
@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>org.reldb.spoing</groupId>
 			<artifactId>spoingPlatformDesktop</artifactId>
-			<version>1.1.0</version>
+			<version>1.1.1</version>
 		</dependency>
 	</dependencies>
 

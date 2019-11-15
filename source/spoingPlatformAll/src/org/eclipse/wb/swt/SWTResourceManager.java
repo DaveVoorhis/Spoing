@@ -12,6 +12,8 @@ package org.eclipse.wb.swt;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,9 +22,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 
@@ -31,8 +31,7 @@ import org.eclipse.swt.widgets.Display;
  * @author scheglov_ke
  * @author Dan Rubel
  * 
- * Modified by:
- * @author Dave Voorhis
+ * <p>Modified by: @author Dave Voorhis
  */
 public class SWTResourceManager {
 	
@@ -96,6 +95,24 @@ public class SWTResourceManager {
 	// Maps image paths to images.
 	private static Map<String, Image> m_imageMap = new HashMap<String, Image>();
 
+	// ImageHelper class
+	private static Class<?> imageHelperClass = null;
+	private static Method getImageMethod = null;
+	private static Method getMissingImageMethod = null;
+	
+	// Resolves late binding to ImageHelper class, which differs between Web and Desktop but is the same for all Desktop.
+	private static void initialiseImageHelperInversion() {
+		if (imageHelperClass != null)
+			return;
+		try {
+			imageHelperClass = Class.forName("org.reldb.spoing.platform.ImageHelper");
+			getImageMethod = imageHelperClass.getMethod("getImage", InputStream.class);
+			getMissingImageMethod = imageHelperClass.getMethod("getMissingImage", Color.class, int.class, int.class);
+		} catch (Exception e) {
+			System.out.println("SWTResourceManager: unable to get ImageHelper: " + e.getMessage());
+		}
+	}
+	
 	/**
 	 * Returns an {@link Image} encoded by the specified {@link InputStream}.
 	 * 
@@ -104,15 +121,12 @@ public class SWTResourceManager {
 	 * @return the {@link Image} encoded by the specified input stream
 	 */
 	protected static Image getImage(InputStream stream) throws IOException {
+		initialiseImageHelperInversion();
 		try {
-			Display display = Display.getCurrent();
-			ImageData data = new ImageData(stream);
-			if (data.transparentPixel > 0) {
-				return new Image(display, data, data.getTransparencyMask());
-			}
-			return new Image(display, data);
-		} finally {
-			stream.close();
+			return (Image)getImageMethod.invoke(null, stream);
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			System.out.println("SWTResourceManager: getImage failed: " + e.getMessage());
+			return null;
 		}
 	}
 	
@@ -165,14 +179,13 @@ public class SWTResourceManager {
 	 * @return the small {@link Image} that can be used as placeholder for missing image.
 	 */
 	public static Image getMissingImage() {
-		Image image = new Image(Display.getCurrent(), MISSING_IMAGE_SIZE, MISSING_IMAGE_SIZE);
-		//
-		GC gc = new GC(image);
-		gc.setBackground(getColor(SWT.COLOR_RED));
-		gc.fillRectangle(0, 0, MISSING_IMAGE_SIZE, MISSING_IMAGE_SIZE);
-		gc.dispose();
-		//
-		return image;
+		initialiseImageHelperInversion();
+		try {
+			return (Image)getMissingImageMethod.invoke(null, getColor(SWT.COLOR_RED), MISSING_IMAGE_SIZE, MISSING_IMAGE_SIZE);
+		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+			System.out.println("SWTResourceManager: getMissingImage failed: " + e.getMessage());
+			return null;
+		}
 	}
 	
 	/**
