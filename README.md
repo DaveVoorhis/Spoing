@@ -6,7 +6,7 @@ building and deploying lightweight, fast-loading, cross-platform
 (Windows, Linux and MacOS) desktop and Web applications from one pure
 Java source code base. No XML, CSS, HTML, Javascript, or significantly-different Web/desktop Java source is required. 
 
-In short: One source base, all Java.
+In short: One Java source base gets you an application that runs on Windows, MacOS, Linux, and the Web.
 
 If you want to quickly write and deploy an application to run on any
 desktop and/or the Web, Spoing makes it easy to do it.
