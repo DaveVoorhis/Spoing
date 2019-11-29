@@ -1,36 +1,36 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.reldb.spoing</groupId>
-	<artifactId>spoingNativeWin_64</artifactId>
-	<version>1.1.1</version>
-	<name>Spoing Windows-specific classes</name>
-	<description>Code specific to running a Windows desktop.</description>
-	
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
-	
-	<dependencies>
-		<dependency>
-			<groupId>org.eclipse.swt</groupId>
-			<artifactId>org.eclipse.swt.win_64</artifactId>
-			<version>4.13</version>
-		</dependency>
-	</dependencies>
+  <modelVersion>4.0.0</modelVersion>
 
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<release>13</release>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+  <parent>
+    <groupId>org.reldb.spoing</groupId>
+    <artifactId>spoingNative</artifactId>
+    <version>1.1.2</version>
+  </parent>
+  
+  <artifactId>spoingNativeWin_64</artifactId>
+  <name>Spoing Windows-specific classes</name>
+  <description>Code specific to running a Windows desktop.</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.eclipse.swt</groupId>
+      <artifactId>org.eclipse.swt.win_64</artifactId>
+      <version>4.13</version>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>3.8.1</version>
+	<configuration>
+	  <release>${java.version}</release>
+	</configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

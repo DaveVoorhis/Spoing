@@ -6,20 +6,18 @@
 
   <parent>
     <groupId>org.reldb.spoing</groupId>
-    <artifactId>spoingEverything</artifactId>
+    <artifactId>spoingDemos</artifactId>
     <version>1.1.2</version>
   </parent>
  
-  <artifactId>spoing</artifactId>
-  <name>Spoing</name>
+  <artifactId>spoingBuilders</artifactId>
+  <name>Spoing Builders</name>
   <packaging>pom</packaging>
 
   <modules>
-    <module>spoingNative</module>
-    <module>spoingNonMavenLibs</module>
-    <module>spoingPlatformAll</module>
-    <module>spoingPlatformDesktop</module>
-    <module>spoingPlatformWeb</module>
-    <module>spoingUtilities</module>
+    <module>mkDesktopLinux_64</module>
+    <module>mkDesktopMacos_64</module>
+    <module>mkDesktopWin_64</module>
+    <module>mkWeb</module>
   </modules>
 </project>

@@ -2,209 +2,208 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.reldb.spoing</groupId>
-	<artifactId>spoingDemoWeb</artifactId>
-	<version>1.1.1</version>
-	<name>Spoing Web Demo</name>
-	<packaging>pom</packaging>
+  <parent>
+    <groupId>org.reldb.spoing</groupId>
+    <artifactId>spoingBuilders</artifactId>
+    <version>1.1.2</version>
+  </parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
+  <artifactId>spoingDemoWeb</artifactId>
+  <name>Spoing Web Demo</name>
+  <packaging>pom</packaging>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.reldb.spoing</groupId>
-			<artifactId>launchDemoWeb</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.reldb.spoing</groupId>
-			<artifactId>demo</artifactId>
-			<version>1.1.1</version>
-			<exclusions>
-				<exclusion> <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingPlatformDesktop</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeWin_64</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeLinux_64</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeMacos_64</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.reldb.spoing</groupId>
-			<artifactId>spoingPlatformAll</artifactId>
-			<version>1.1.1</version>
-			<exclusions>
-				<exclusion> <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingPlatformDesktop</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeWin_64</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeLinux_64</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeMacos_64</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.reldb.spoing</groupId>
-			<artifactId>spoingPlatformWeb</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.reldb.spoing</groupId>
-			<artifactId>spoingUtilities</artifactId>
-			<version>1.1.1</version>
-			<exclusions>
-				<exclusion> <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingPlatformDesktop</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeWin_64</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeLinux_64</artifactId>
-				</exclusion>
-				<exclusion>  <!-- don't include desktop dependencies -->
-					<groupId>org.reldb.spoing</groupId>
-					<artifactId>spoingNativeMacos_64</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-			<version>9.0.27</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<version>9.0.27</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-el -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-el</artifactId>
-			<version>9.0.27</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-websocket</artifactId>
-			<version>9.0.27</version>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<overWriteReleases>true</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-							<excludeTransitive>false</excludeTransitive>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
-				<executions>
-					<execution>
-						<id>copy-resources_webcontent</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/../../WebContent</outputDirectory>
-							<resources>
-								<resource>
-									<directory>../../LaunchDemoWeb/WebContent</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-resources_lib</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/../../WebContent/WEB-INF/lib</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/target/dependency</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.1.0</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${basedir}/../../WebContent</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-						<fileset>
-							<directory>${basedir}/../../tomcat.8080</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-						<fileset>
-							<directory>${basedir}/../../</directory>
-							<includes>
-								<include>tomcat.log</include>
-							</includes>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+  <dependencies>
+    <dependency>
+      <groupId>org.reldb.spoing</groupId>
+      <artifactId>launchDemoWeb</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.reldb.spoing</groupId>
+      <artifactId>demo</artifactId>
+      <version>${project.version}</version>
+      <exclusions>
+	<exclusion> <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingPlatformDesktop</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeWin_64</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeLinux_64</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeMacos_64</artifactId>
+	</exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.reldb.spoing</groupId>
+      <artifactId>spoingPlatformAll</artifactId>
+      <version>${project.version}</version>
+      <exclusions>
+	<exclusion> <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingPlatformDesktop</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeWin_64</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeLinux_64</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeMacos_64</artifactId>
+	</exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.reldb.spoing</groupId>
+      <artifactId>spoingPlatformWeb</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.reldb.spoing</groupId>
+      <artifactId>spoingUtilities</artifactId>
+      <version>${project.version}</version>
+      <exclusions>
+	<exclusion> <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingPlatformDesktop</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeWin_64</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeLinux_64</artifactId>
+	</exclusion>
+	<exclusion>  <!-- don't include desktop dependencies -->
+	  <groupId>org.reldb.spoing</groupId>
+	  <artifactId>spoingNativeMacos_64</artifactId>
+	</exclusion>
+      </exclusions>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-core</artifactId>
+      <version>9.0.27</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+      <version>9.0.27</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-el -->
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-el</artifactId>
+      <version>9.0.27</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-websocket</artifactId>
+      <version>9.0.27</version>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-dependency-plugin</artifactId>
+	<executions>
+	  <execution>
+	    <id>copy-dependencies</id>
+	    <phase>package</phase>
+	    <goals>
+	      <goal>copy-dependencies</goal>
+	    </goals>
+	    <configuration>
+	      <overWriteReleases>true</overWriteReleases>
+	      <overWriteSnapshots>true</overWriteSnapshots>
+	      <excludeTransitive>false</excludeTransitive>
+	    </configuration>
+	  </execution>
+	</executions>
+      </plugin>
+      <plugin>
+	<artifactId>maven-resources-plugin</artifactId>
+	<version>3.1.0</version>
+	<executions>
+	  <execution>
+	    <id>copy-resources_webcontent</id>
+	    <phase>package</phase>
+	    <goals>
+	      <goal>copy-resources</goal>
+	    </goals>
+	    <configuration>
+	      <outputDirectory>${basedir}/../../WebContent</outputDirectory>
+	      <resources>
+		<resource>
+		  <directory>../../LaunchDemoWeb/WebContent</directory>
+		</resource>
+	      </resources>
+	    </configuration>
+	  </execution>
+	  <execution>
+	    <id>copy-resources_lib</id>
+	    <phase>package</phase>
+	    <goals>
+	      <goal>copy-resources</goal>
+	    </goals>
+	    <configuration>
+	      <outputDirectory>${basedir}/../../WebContent/WEB-INF/lib</outputDirectory>
+	      <resources>
+		<resource>
+		  <directory>${basedir}/target/dependency</directory>
+		</resource>
+	      </resources>
+	    </configuration>
+	  </execution>
+	</executions>
+      </plugin>
+      <plugin>
+	<artifactId>maven-clean-plugin</artifactId>
+	<version>3.1.0</version>
+	<configuration>
+	  <filesets>
+	    <fileset>
+	      <directory>${basedir}/../../WebContent</directory>
+	      <includes>
+		<include>**</include>
+	      </includes>
+	      <followSymlinks>false</followSymlinks>
+	    </fileset>
+	    <fileset>
+	      <directory>${basedir}/../../tomcat.8080</directory>
+	      <includes>
+		<include>**</include>
+	      </includes>
+	      <followSymlinks>false</followSymlinks>
+	    </fileset>
+	    <fileset>
+	      <directory>${basedir}/../../</directory>
+	      <includes>
+		<include>tomcat.log</include>
+	      </includes>
+	    </fileset>
+	  </filesets>
+	</configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
