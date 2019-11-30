@@ -32,16 +32,16 @@ simplify creating new applications.
 
 ## Required JDK
 
-This release is intended for Java Development Kit (JDK) 13 and above,
+This release is intended for Java Development Kit (JDK) 11 and above,
 but can be recompiled using Eclipse or other IDE -- or the Maven
 pom.xml scripts -- to work with JDK 9 or above.
 
-You can obtain a JDK 13 and above from
+You can obtain a JDK 11 and above from
 https://openjdk.java.net. Download the bundle appropriate to your
 environment, unarchive it to a directory of your choice, and set your
 PATH environment variable to point to its _bin_ directory.
 
-The Oracle JDK 13 or above from
+The Oracle JDK 11 or above from
 https://www.oracle.com/technetwork/java/javase/downloads/index.html
 should work, but hasn't been tested.
 
@@ -55,7 +55,7 @@ JRE (generated using JDK tools) with each application.
 
 ## Running the Demo
 
-1 - Install JDK 13 or higher, as described above.
+1 - Install JDK 11 or higher, as described above.
 
 2 - Install Apache Maven, if you have not already done so. See https://maven.apache.org/install.html 
 
