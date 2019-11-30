@@ -8,8 +8,44 @@
   <artifactId>spoingEverything</artifactId>
   <version>1.1.2</version>
   <name>Spoing Demos and Source</name>
+  <description>Libraries and samples to ease building and deploying
+  cross-platform (Windows, Linux, MacOS, and Web) applications from
+  one Java source code base. No XML, CSS, HTML, or Javascript is
+  required.</description>
   <packaging>pom</packaging>
+  
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+ 
+  <scm>
+    <url>https://github.com/DaveVoorhis/Spoing</url>
+  </scm>
 
+  <organization>
+    <name>RelDB</name>
+    <url>https://reldb.org</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>DaveVoorhis</id>
+      <name>Dave Voorhis</name>
+      <email>dave@armchair.mb.ca</email>
+      <url>https://github.com/DaveVoorhis</url>
+      <organization>RelDB</organization>
+      <organizationUrl>https://reldb.org</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>Europe/London</timezone>
+    </developer>
+  </developers>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
