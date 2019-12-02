@@ -32,21 +32,21 @@ public class UpdatesCheck {
 	private Object sendWorkerMutex = Integer.valueOf(0);
 	
 	private String updateURL;
-	private float versionNumber;
+	private String versionString;
 
-	public UpdatesCheck(Button btnSend, Label lblProgress, ProgressBar progressBar, String updateURL, float versionNumber) {
+	public UpdatesCheck(Button btnSend, Label lblProgress, ProgressBar progressBar, String updateURL, String versionString) {
 		this.display = lblProgress.getDisplay();
 		this.btnGo = btnSend;
 		this.lblProgress = lblProgress;
 		this.progressBar = progressBar;
 		this.updateURL = updateURL;
-		this.versionNumber = versionNumber;
+		this.versionString = versionString;
 	}
 
-	public UpdatesCheck(Display display, String updateURL, float versionNumber) {
+	public UpdatesCheck(Display display, String updateURL, String versionString) {
 		this.display = display;
 		this.updateURL = updateURL;
-		this.versionNumber = versionNumber;
+		this.versionString = versionString;
 	}
 
 	protected void initialiseProgress(String msg, int steps) {
@@ -151,7 +151,7 @@ public class UpdatesCheck {
 				HttpPost httppost = new HttpPost(updateURL);
 
 				List<NameValuePair> formparams = new ArrayList<NameValuePair>();
-				formparams.add(new BasicNameValuePair("SpoingVersion", Float.toString(versionNumber)));
+				formparams.add(new BasicNameValuePair("SpoingVersion", versionString));
 				formparams.add(new BasicNameValuePair("OSName", System.getProperty("os.name")));
 				formparams.add(new BasicNameValuePair("OSVersion", System.getProperty("os.version")));
 				formparams.add(new BasicNameValuePair("OSArch", System.getProperty("os.arch")));

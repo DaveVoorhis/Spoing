@@ -80,6 +80,18 @@
       <artifactId>org.eclipse.swt.macos_64</artifactId>
       <version>4.13</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-model -->
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <version>3.6.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-utils -->
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>3.3.0</version>
+    </dependency>
   </dependencies>
   
   <build>

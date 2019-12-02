@@ -17,12 +17,12 @@ public class Version {
 		return null;
 	}
 
-	public static float getVersionNumber() {
-		return 1.000F;
+	public static String getSpoingVersionString() {
+		return org.reldb.spoing.version.Version.getVersionString();
 	}
-
+	
 	public static String getVersion() {
-		return String.format("Version %.3f", getVersionNumber());
+		return getSpoingVersionString();
 	}
 
 	public static URI getReportLogURL() {
@@ -31,7 +31,7 @@ public class Version {
 	}
 
 	public static String getAppID() {
-		return getAppName() + " " + getVersionNumber();
+		return getAppName() + " " + getSpoingVersionString();
 	}
 
 	public static String getCopyrightNotice() {

@@ -182,7 +182,7 @@ public class UpdatesCheckDialog extends DialogAbstract {
 		lblProgress.setEnabled(false);
 		progressBar.setEnabled(false);
 		
-		checker = new UpdatesCheck(btnGo, lblProgress, progressBar, Version.getUpdateURL(), Version.getVersionNumber()) {
+		checker = new UpdatesCheck(btnGo, lblProgress, progressBar, Version.getUpdateURL(), Version.getVersion()) {
 			@Override
 			public void completed(SendStatus sendStatus) {
 				UpdatesCheckDialog.this.completed(sendStatus);
