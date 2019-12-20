@@ -3,3 +3,6 @@
 /tomcat.log
 /jdk/
 /target/
+.settings/
+.project
+.classpath

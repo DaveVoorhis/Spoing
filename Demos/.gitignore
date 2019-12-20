@@ -4,3 +4,6 @@
 /WebContent/
 /tomcat.8080/
 /tomcat.log
+.settings/
+.project
+.classpath
