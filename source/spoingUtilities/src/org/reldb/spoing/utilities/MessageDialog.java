@@ -4,7 +4,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.reldb.spoing.platform.MessageBoxLauncher;
-import org.reldb.spoing.utilities.Action;
 
 /**
  * A dialog for showing messages to the user.

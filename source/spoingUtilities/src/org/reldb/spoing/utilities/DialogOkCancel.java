@@ -1,7 +1,6 @@
 package org.reldb.spoing.utilities;
 
 import org.eclipse.swt.widgets.Shell;
-import org.reldb.spoing.utilities.EventHandler;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
