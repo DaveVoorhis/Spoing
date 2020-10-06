@@ -15,7 +15,7 @@
     <dependency>
       <groupId>org.eclipse.swt</groupId>
       <artifactId>org.eclipse.swt.win_64</artifactId>
-      <version>4.13</version>
+      <version>4.17</version>
     </dependency>
   </dependencies>
   

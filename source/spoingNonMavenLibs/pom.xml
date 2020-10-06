@@ -27,7 +27,7 @@
 	      <repositoryLayout>default</repositoryLayout>
 	      <groupId>org.eclipse.swt</groupId>
 	      <artifactId>org.eclipse.swt.win_64</artifactId>
-	      <version>4.13</version>
+	      <version>4.17</version>
 	      <file>srcLib/swt/win_64/swt.jar</file>
 	      <packaging>jar</packaging>
 	      <generatePom>true</generatePom>
@@ -43,7 +43,7 @@
 	      <repositoryLayout>default</repositoryLayout>
 	      <groupId>org.eclipse.swt</groupId>
 	      <artifactId>org.eclipse.swt.linux_64</artifactId>
-	      <version>4.13</version>
+	      <version>4.17</version>
 	      <file>srcLib/swt/linux_64/swt.jar</file>
 	      <packaging>jar</packaging>
 	      <generatePom>true</generatePom>
@@ -59,7 +59,7 @@
 	      <repositoryLayout>default</repositoryLayout>
 	      <groupId>org.eclipse.swt</groupId>
 	      <artifactId>org.eclipse.swt.macos_64</artifactId>
-	      <version>4.13</version>
+	      <version>4.17</version>
 	      <file>srcLib/swt/macos_64/swt.jar</file>
 	      <packaging>jar</packaging>
 	      <generatePom>true</generatePom>
