@@ -10,6 +10,11 @@
   <artifactId>launchDemoWeb</artifactId>
   <name>Spoing demo launcher for the Web</name>
   <description>Spoing demo for the Web.</description>
+
+  <properties>
+    <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed -->
+    <tomcat.version>9.0.38</tomcat.version>
+  </properties>
   	
   <dependencies>
     <dependency>
@@ -90,25 +95,25 @@
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-core</artifactId>
-      <version>9.0.35</version>
+      <version>${tomcat.version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-jasper</artifactId>
-      <version>9.0.35</version>
+      <version>${tomcat.version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-el -->
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-el</artifactId>
-      <version>9.0.35</version>
+      <version>${tomcat.version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket -->
     <dependency>
       <groupId>org.apache.tomcat.embed</groupId>
       <artifactId>tomcat-embed-websocket</artifactId>
-      <version>9.0.35</version>
+      <version>${tomcat.version}</version>
     </dependency>
   </dependencies>
   
