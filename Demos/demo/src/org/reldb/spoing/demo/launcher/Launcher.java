@@ -434,7 +434,12 @@ public class Launcher {
 		);
 
 		if (!PlatformDetect.isMac()) {
-			SplashScreen splash = SplashScreen.getSplashScreen();
+			SplashScreen splash = null;
+			try {
+				splash = SplashScreen.getSplashScreen();
+			} catch (Exception e) {
+				System.out.println("Launcher: Unable to display splashscreen: " + e);
+			}
 			if (splash != null) {
 				Graphics2D gc = splash.createGraphics();
 				Rectangle rect = splash.getBounds();
