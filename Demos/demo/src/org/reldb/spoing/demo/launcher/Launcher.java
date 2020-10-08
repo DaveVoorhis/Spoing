@@ -437,7 +437,7 @@ public class Launcher {
 			SplashScreen splash = null;
 			try {
 				splash = SplashScreen.getSplashScreen();
-			} catch (Exception e) {
+			} catch (Throwable e) {
 				System.out.println("Launcher: Unable to display splashscreen: " + e);
 			}
 			if (splash != null) {
