@@ -65,7 +65,8 @@ public class Widgets extends Composite {
 		fd_btnOne.top = new FormAttachment(combo, 6);
 		fd_btnOne.left = new FormAttachment(lblLabel, 0, SWT.LEFT);
 		btnOne.setLayoutData(fd_btnOne);
-		btnOne.setText("One");
+		btnOne.setText("Info");
+		btnOne.setToolTipText("Demonstration \"Info\" dialog box");
 		btnOne.addListener(SWT.Selection, evt -> MessageDialog.openInformation(getShell(), "Demo MessageDialog", "This is some information."));
 		
 		var btnTwo = new Button(this, SWT.NONE);
@@ -73,7 +74,8 @@ public class Widgets extends Composite {
 		fd_btnTwo.bottom = new FormAttachment(btnOne, 0, SWT.BOTTOM);
 		fd_btnTwo.left = new FormAttachment(btnOne, 6);
 		btnTwo.setLayoutData(fd_btnTwo);
-		btnTwo.setText("Two");
+		btnTwo.setText("Error");
+		btnTwo.setToolTipText("Demonstration \"Error\" dialog box");
 		btnTwo.addListener(SWT.Selection, evt -> MessageDialog.openError(getShell(), "Demo MessageDialog", "This is a demonstration of an error MessageDialog."));
 		
 		var btnThree = new Button(this, SWT.NONE);
@@ -81,7 +83,8 @@ public class Widgets extends Composite {
 		fd_btnThree.bottom = new FormAttachment(btnOne, 0, SWT.BOTTOM);
 		fd_btnThree.left = new FormAttachment(btnTwo, 6);
 		btnThree.setLayoutData(fd_btnThree);
-		btnThree.setText("Three");
+		btnThree.setText("Question");
+		btnThree.setToolTipText("Demonstration \"Question\" dialog box");
 		btnThree.addListener(SWT.Selection, evt -> MessageDialog.openQuestion(
 				getShell(), "Demo MessageDialog", "Is this a demonstration of a question MessageDialog?",
 					() -> MessageDialog.openInformation(getShell(), "Demo MessageDialog", "You must have clicked 'Yes'")));
