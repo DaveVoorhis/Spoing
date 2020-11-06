@@ -55,7 +55,7 @@
 
   <modules>
     <module>Demos</module>
-    <module>source</module>
+    <module>src</module>
   </modules>
     
 </project>
