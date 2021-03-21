@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.reldb.spoing</groupId>
     <artifactId>spoingDemos</artifactId>
-    <version>1.1.4-SNAPSHOT</version>
+    <version>1.1.5-SNAPSHOT</version>
   </parent>
 
   <artifactId>launchDemoWeb</artifactId>
@@ -13,7 +13,7 @@
 
   <properties>
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed -->
-    <tomcat.version>9.0.38</tomcat.version>
+    <tomcat.version>9.0.41</tomcat.version>
   </properties>
   	
   <dependencies>
