@@ -13,7 +13,7 @@
 
   <properties>
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed -->
-    <tomcat.version>9.0.41</tomcat.version>
+    <tomcat.version>9.0.43</tomcat.version>
   </properties>
   	
   <dependencies>
