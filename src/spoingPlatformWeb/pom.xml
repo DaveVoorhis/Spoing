@@ -31,20 +31,23 @@
 	</exclusion>
       </exclusions>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.eclipse.rap/org.eclipse.rap.fileupload -->
     <dependency>
       <groupId>org.eclipse.rap</groupId>
       <artifactId>org.eclipse.rap.fileupload</artifactId>
-      <version>3.14.0</version>
+      <version>3.17.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.eclipse.rap/org.eclipse.rap.filedialog -->
     <dependency>
       <groupId>org.eclipse.rap</groupId>
       <artifactId>org.eclipse.rap.filedialog</artifactId>
-      <version>3.14.0</version>
+      <version>3.17.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.eclipse.rap/org.eclipse.rap.rwt -->
     <dependency>
       <groupId>org.eclipse.rap</groupId>
-      <artifactId>org.eclipse.rap-rwt</artifactId>
-      <version>3.14.0</version>
+      <artifactId>org.eclipse.rap.rwt</artifactId>
+      <version>3.17.0</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
     <dependency>

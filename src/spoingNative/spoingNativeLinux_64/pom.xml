@@ -12,10 +12,11 @@
   <description>Code specific to running a Linux (GTK) desktop.</description>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.eclipse.platform/org.eclipse.swt.gtk.linux.x86_64 -->
     <dependency>
-      <groupId>org.eclipse.swt</groupId>
-      <artifactId>org.eclipse.swt.linux_64</artifactId>
-      <version>4.17</version>
+      <groupId>org.eclipse.platform</groupId>
+      <artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
+      <version>3.116.100</version>
     </dependency>
   </dependencies>
   

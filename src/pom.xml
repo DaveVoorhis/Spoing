@@ -13,7 +13,6 @@
 
   <modules>
     <module>spoingNative</module>
-    <module>spoingNonMavenLibs</module>
     <module>spoingPlatformAll</module>
     <module>spoingPlatformDesktop</module>
     <module>spoingPlatformWeb</module>

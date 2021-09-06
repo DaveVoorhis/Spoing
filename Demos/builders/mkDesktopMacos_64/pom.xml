@@ -42,10 +42,11 @@
       <artifactId>spoingNativeMacos_64</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.eclipse.platform/org.eclipse.swt.cocoa.macosx.x86_64 -->
     <dependency>
-      <groupId>org.eclipse.swt</groupId>
-      <artifactId>org.eclipse.swt.macos_64</artifactId>
-      <version>4.17</version>
+      <groupId>org.eclipse.platform</groupId>
+      <artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId>
+      <version>3.116.100</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-model -->
     <dependency>
