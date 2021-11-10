@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.reldb.spoing</groupId>
     <artifactId>spoingBuilders</artifactId>
-    <version>1.1.6-SNAPSHOT</version>
+    <version>1.1.7-SNAPSHOT</version>
   </parent>
   
   <artifactId>spoingDemoDesktopMacos_64</artifactId>

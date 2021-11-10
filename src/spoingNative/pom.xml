@@ -1,19 +1,24 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                       https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.reldb.spoing</groupId>
-    <artifactId>spoing</artifactId>
-    <version>1.1.6-SNAPSHOT</version>
-  </parent>
- 
-  <artifactId>spoingNative</artifactId>
-  <name>Spoing Native</name>
-  <packaging>pom</packaging>
+    <parent>
+        <groupId>org.reldb.spoing</groupId>
+        <artifactId>spoing</artifactId>
+        <version>1.1.7-SNAPSHOT</version>
+    </parent>
 
-  <modules>
-    <module>spoingNativeLinux_64</module>
-    <module>spoingNativeMacos_64</module>
-    <module>spoingNativeWin_64</module>
-  </modules>
+    <artifactId>spoingNative</artifactId>
+    <name>Spoing Native</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <swt.native.version>3.117.0</swt.native.version>
+    </properties>
+
+    <modules>
+        <module>spoingNativeLinux_64</module>
+        <module>spoingNativeMacos_64</module>
+        <module>spoingNativeWin_64</module>
+    </modules>
 </project>

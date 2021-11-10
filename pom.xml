@@ -1,61 +1,63 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                       https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  
-  <groupId>org.reldb.spoing</groupId>
-  <artifactId>spoingEverything</artifactId>
-  <version>1.1.6-SNAPSHOT</version>
-  <name>Spoing Demos and Source</name>
-  <description>Libraries and samples to ease building and deploying
-  cross-platform (Windows, Linux, MacOS, and Web) applications from
-  one Java source code base. No XML, CSS, HTML, or Javascript is
-  required.</description>
-  <packaging>pom</packaging>
-  
-  <licenses>
-    <license>
-      <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
- 
-  <scm>
-    <url>https://github.com/DaveVoorhis/Spoing</url>
-  </scm>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <organization>
-    <name>RelDB</name>
-    <url>https://reldb.org</url>
-  </organization>
+    <groupId>org.reldb.spoing</groupId>
+    <artifactId>spoingEverything</artifactId>
+    <version>1.1.7-SNAPSHOT</version>
+    <name>Spoing Demos and Source</name>
+    <description>Libraries and samples to ease building and deploying
+        cross-platform (Windows, Linux, MacOS, and Web) applications from
+        one Java source code base. No XML, CSS, HTML, or Javascript is
+        required.
+    </description>
+    <packaging>pom</packaging>
 
-  <developers>
-    <developer>
-      <id>DaveVoorhis</id>
-      <name>Dave Voorhis</name>
-      <email>dave@armchair.mb.ca</email>
-      <url>https://github.com/DaveVoorhis</url>
-      <organization>RelDB</organization>
-      <organizationUrl>https://reldb.org</organizationUrl>
-      <roles>
-        <role>developer</role>
-      </roles>
-      <timezone>Europe/London</timezone>
-    </developer>
-  </developers>
-  
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>11</java.version>
-    <junit.version>5.5.2</junit.version>
-    <maven-compiler.version>3.8.1</maven-compiler.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-  </properties>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-  <modules>
-    <module>Demos</module>
-    <module>src</module>
-  </modules>
-    
+    <scm>
+        <url>https://github.com/DaveVoorhis/Spoing</url>
+    </scm>
+
+    <organization>
+        <name>RelDB</name>
+        <url>https://reldb.org</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>DaveVoorhis</id>
+            <name>Dave Voorhis</name>
+            <email>voorhis@gmail.com</email>
+            <url>https://github.com/DaveVoorhis</url>
+            <organization>RelDB</organization>
+            <organizationUrl>https://reldb.org</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/London</timezone>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <junit.version>5.5.2</junit.version>
+        <maven-compiler.version>3.8.1</maven-compiler.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+    </properties>
+
+    <modules>
+        <module>Demos</module>
+        <module>src</module>
+    </modules>
+
 </project>
