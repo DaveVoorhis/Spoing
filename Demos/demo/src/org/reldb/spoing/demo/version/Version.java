@@ -35,7 +35,7 @@ public class Version {
 	}
 
 	public static String getCopyrightNotice() {
-		return getAppName() + " copyright © 2019 - 2021\nDave Voorhis and reldb.org\nAll Rights Reserved";
+		return getAppName() + " copyright © 2019 - 2022\nDave Voorhis and reldb.org\nAll Rights Reserved";
 	}
 	
 	public static String getProductPackage() {

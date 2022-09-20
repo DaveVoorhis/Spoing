@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.reldb.spoing</groupId>
         <artifactId>spoing</artifactId>
-        <version>1.1.7-SNAPSHOT</version>
+        <version>1.1.8-SNAPSHOT</version>
     </parent>
 
     <artifactId>spoingPlatformWeb</artifactId>
@@ -13,7 +13,7 @@
     <description>Abstract away differences between RAP/RWT and SWT for Web.</description>
 
     <properties>
-        <rap.version>3.18.0</rap.version>
+        <rap.version>3.21.0</rap.version>
     </properties>
 
     <dependencies>

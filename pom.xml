@@ -4,7 +4,7 @@
 
     <groupId>org.reldb.spoing</groupId>
     <artifactId>spoingEverything</artifactId>
-    <version>1.1.7-SNAPSHOT</version>
+    <version>1.1.8-SNAPSHOT</version>
     <name>Spoing Demos and Source</name>
     <description>Libraries and samples to ease building and deploying
         cross-platform (Windows, Linux, MacOS, and Web) applications from
